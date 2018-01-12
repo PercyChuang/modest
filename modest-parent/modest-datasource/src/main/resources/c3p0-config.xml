@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="commonDataSourceConfig" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" abstract="true">
+		<property name="initialPoolSize" value="10" />
+		<property name="minPoolSize" value="10" />
+		<property name="maxPoolSize" value="50" />
+		<property name="acquireIncrement" value="5" />
+		<property name="acquireRetryAttempts" value="10" />
+		<property name="acquireRetryDelay" value="1000" />
+		<property name="autoCommitOnClose" value="false" />
+		<property name="checkoutTimeout" value="15000" />
+		<property name="numHelperThreads" value="64" />
+		<property name="maxStatementsPerConnection" value="512" />
+		<property name="propertyCycle" value="300" />
+		<property name="breakAfterAcquireFailure" value="false" />
+		<property name="testConnectionOnCheckout" value="false" />
+		<property name="testConnectionOnCheckin" value="true" />
+		<property name="idleConnectionTestPeriod" value="600" />
+		<!-- <property name="automaticTestTable" value="C3P0_TEST" /> -->
+		<property name="maxIdleTime" value="2400" />
+		<property name="unreturnedConnectionTimeout" value="2000" />
+		<property name="debugUnreturnedConnectionStackTraces" value="true" />
+	</bean>
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.C3P0NativeJdbcExtractor" lazy-init="true" />
+</beans>

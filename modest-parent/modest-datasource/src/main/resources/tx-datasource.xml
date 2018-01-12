@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+ 
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource" p:defaultTimeout="3" />
+
+	<bean id="dataSourceProxy"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<property name="targetDataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSourceProxy" />
+	</bean>
+	
+	<bean id="dataSourceAspect" class="com.modest.datasource.pointcut.DataSourceAspect" />
+	
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" mode="proxy" order="200" />
+
+	<aop:config>
+		<aop:aspect ref="dataSourceAspect" order="125">
+			<aop:pointcut id="dataSourcePointcut"
+				expression="com.modest.datasource.pointcut.DataSourcePointcuts.dsMarkPointcut()" />
+			<aop:before pointcut-ref="dataSourcePointcut" method="intercept" />
+			<aop:after pointcut-ref="dataSourcePointcut" method="interceptAfter" />
+		</aop:aspect>
+	</aop:config>
+	
+</beans>

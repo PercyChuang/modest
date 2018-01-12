@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="dialect" class="com.modest.mybatis.dialect.MySql5Dialect" />
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true" />
+	
+	<bean id="paginationInterceptor" class="com.modest.mybatis.interceptor.PaginationInterceptor">
+		<property name="dialect" ref="dialect" />
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis_config.xml" />
+		<property name="failFast" value="true" />
+		<property name="mapperLocations">
+			<array>
+				<value>classpath*:/sqlmap/**/*.xml</value>
+			</array>
+		</property>
+		<property name="plugins">
+			<array>
+				<ref bean="paginationInterceptor" />
+			</array>
+		</property>
+	</bean>
+	<bean class="com.modest.mybatis.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean> 
+	<bean id="simpleSqlSession" class="com.modest.mybatis.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+		<constructor-arg index="1" value="SIMPLE" />
+	</bean>
+	<bean id="reuseSqlSession" class="com.modest.mybatis.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+		<constructor-arg index="1" value="REUSE" />
+	</bean>
+	<bean id="batchSqlSession" class="com.modest.mybatis.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+		<constructor-arg index="1" value="BATCH" />
+	</bean>
+	
+</beans>
