@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.modest</groupId>
+		<artifactId>modest-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>modest-app-parent</artifactId>
+	<packaging>pom</packaging>
+	
+	<!-- ================================================= -->
+	<!-- 适配CLASSPATH -->
+	<!-- ================================================= -->
+	<properties>
+		<app.build.classpath>${project.build.outputDirectory}</app.build.classpath>
+	</properties>
+	
+	<!-- ================================================= -->
+	<!-- 依懒启动项 -->
+	<!-- ================================================= -->
+	<dependencies>
+		<dependency>
+			<groupId>com.modest</groupId>
+			<artifactId>modest-starter</artifactId>
+			<version>${modest.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<!-- ================================================= -->
+	<!-- 插件绑定 -->
+	<!-- ================================================= -->
+	<build>
+		<plugins>
+			<!-- jar包排除conf和bin目录  提到zip包中-->
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>bin/**</exclude>
+						<exclude>config/**</exclude>
+						<exclude>logback.xml</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<!-- 启用filter协助不同环境变量的应用 -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/filters</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<!-- 具打包插件管理-->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>build-helper-maven-plugin</artifactId>
+										<versionRange>[1.7,)</versionRange>
+										<goals>
+											<goal>add-source</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.5</version>
+					<dependencies>
+						<dependency>
+							<groupId>com.modest</groupId>
+							<artifactId>modest-starter</artifactId>
+							<version>${modest.version}</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>make-assembly</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+							<configuration>
+								<appendAssemblyId>false</appendAssemblyId>
+								<descriptorRefs>
+									<descriptorRef>modest_assembly</descriptorRef>
+								</descriptorRefs>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+		
+</project>

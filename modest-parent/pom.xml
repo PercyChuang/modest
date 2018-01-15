@@ -1055,5 +1055,6 @@
 		<module>modest-datasource</module>
 		<module>modest-mybatis</module>
 		<module>modest-starter</module>
+		<module>modest-app-parent</module>
 	</modules>
 </project>

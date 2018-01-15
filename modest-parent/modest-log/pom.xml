@@ -30,6 +30,14 @@
 			<groupId>com.cwbase</groupId>
 			<artifactId>logback-redis-appender</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
