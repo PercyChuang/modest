@@ -19,11 +19,20 @@ public class MapperScannerConfigurer extends org.mybatis.spring.mapper.MapperSca
         this.basePackage = basePackage;
     }
 
+	/**
+	 * annotationClass 属性指定了要寻找的注解名称。
+	 * markerInterface 属性指定了要寻找的父接口。如果两者都被指定了，加入到接口中的映射器会匹配两种标准。
+	 * 默认情况下，这两个属性都是 null，所以在基包中给定的所有接口可以作为映射器加载。
+	 * 这里指定加了repository注解的类。
+	 * 后期指定扩展baseDao时，可以在这里扩展。
+	 * springboot已把annotationClass设置成Mapper和repository两个值，加入这两个值都会生效。
+	 **/
     @Override
     public void setApplicationContext(final ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
         super.setApplicationContext(applicationContext);
         setAnnotationClass(Repository.class);
+        
     }
 
     @Override

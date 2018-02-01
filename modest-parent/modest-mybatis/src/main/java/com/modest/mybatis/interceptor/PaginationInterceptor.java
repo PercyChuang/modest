@@ -24,6 +24,7 @@ import com.modest.mybatis.util.ReflectionUtils;
 
 /**
  * 分面插件
+ * 在方言中
  * @author 庄濮向 Edmond Chuang
  */
 @Intercepts({ @org.apache.ibatis.plugin.Signature(type = StatementHandler.class, method = "prepare", args = { java.sql.Connection.class }) })
@@ -56,6 +57,7 @@ public class PaginationInterceptor implements Interceptor {
         	originalSql = originalSql.substring(0, originalSql.length()-1);
         }
         Configuration configuration = (Configuration) metaStatementHandler.getValue(CONFIGURATION);
+        //把总条数交给工具类，每个线程独享自己线程内的总条数。
         CountHelper.getCount(countSql, statementHandler, configuration, boundSql.getParameterMappings(), connection);
         metaStatementHandler.setValue("boundSql.sql",
                 this.dialect.getLimitString(originalSql, rowBounds.getOffset(), rowBounds.getLimit()));

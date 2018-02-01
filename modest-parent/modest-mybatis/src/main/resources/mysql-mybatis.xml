@@ -5,11 +5,12 @@
 			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
 	<bean id="dialect" class="com.modest.mybatis.dialect.MySql5Dialect" />
-	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true" />
 	
+	<!-- 分页插件 -->
 	<bean id="paginationInterceptor" class="com.modest.mybatis.interceptor.PaginationInterceptor">
 		<property name="dialect" ref="dialect" />
 	</bean>
+	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis_config.xml" />
@@ -25,9 +26,24 @@
 			</array>
 		</property>
 	</bean>
+	
+	<!-- 
+		不必为每一个DAO都去写相应的实现，而交给SpringMVC替你创建 
+		不支持使用了 PropertyPlaceholderConfigurer,会在它之前加载
+		多个数据源的情况之下要指定 sqlSessionFactoryBeanName
+	-->
 	<bean class="com.modest.mybatis.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean> 
+	
+	<!-- 
+		SqlSessionTemplate 是 MyBatis-Spring 的核心 
+		分为三个执行器：SIMPLE默认 REUSE重用 BATCH批量操作
+		这里配置三种不同执行器的session，在某种场景的时候，可自选使用。
+		使用场景：自已写dao或service,直接通过SqlSessionTemplate基于模板类实现Mybatis
+		ps:sqlSessionTemplate.selectOne("user.queryById", parameter); 
+		ps:其中user指xml中namespace把名字,queryById是指语句的名字。
+	-->
 	<bean id="simpleSqlSession" class="com.modest.mybatis.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 		<constructor-arg index="1" value="SIMPLE" />

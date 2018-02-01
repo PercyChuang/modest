@@ -1,5 +1,9 @@
 package com.modest.mybatis.dialect;
 
+/**
+ * oracleDialect的支持。
+ * @author Edmont Chuang
+ */
 public class OracleDialect extends Dialect {
     @Override
     public String getLimitString(final String sql, final int offset, final int limit) {

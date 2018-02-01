@@ -61,13 +61,25 @@
 			<groupId>${aspectj.groupId}</groupId>
 			<artifactId>aspectjweaver</artifactId>
 		</dependency>
-		<!-- 其他基础 -->
+		<!-- 字节码编辑工具,可以直接编辑和生成Java生成的字节码,以达到对.class文件进行动态修改的效果 -->
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
 		</dependency>
-		
-		<!-- servlet相关 -->
+
+		<!-- 摘要运算、编码的包 BinaryEncoders、DigestEncoders、LanguageEncoders、NetworkEncoders -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<!-- 集合工具类 -->
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+
+		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -75,9 +87,10 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
+			<!-- 只在编译和测试的时候用 发版使用tomcat里的 -->
 			<scope>provided</scope>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>

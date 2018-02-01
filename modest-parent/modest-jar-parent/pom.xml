@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>modest-app-parent</artifactId>
+	<artifactId>modest-jar-parent</artifactId>
 	<packaging>pom</packaging>
 	
 	<!-- ================================================= -->

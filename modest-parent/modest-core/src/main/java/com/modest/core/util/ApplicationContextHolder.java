@@ -13,6 +13,7 @@ public class ApplicationContextHolder implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(final ApplicationContext applicationContext) {
+    	System.out.println("applicationContext----------->:" + applicationContext);
         ApplicationContextHolder.applicationContext = applicationContext;
     }
 

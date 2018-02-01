@@ -12,13 +12,17 @@
 			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 			">
-			
-	<aop:aspectj-autoproxy proxy-target-class="true" />
-	<bean class="com.modest.core.util.ApplicationContextHolder" destroy-method="destroy" />
-	<import resource="classpath*:properties-loading.xml"/>
-	<context:component-scan base-package="com.modest.core.config"/>
 	
+	<!-- 在加载其它配置文件之前开启自动代理模式; -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+	<!-- spring 上下文件支持 -->
+	<bean class="com.modest.core.util.ApplicationContextHolder" destroy-method="destroy" />
+	
+	<!-- 框架必要配置文件加载 -->
+	<import resource="classpath*:properties-loading.xml"/>
 	<import resource="classpath*:datasource-c3p0.xml" />
 	<import resource="classpath*:tx-datasource.xml" />
 	<import resource="classpath*:mysql-mybatis.xml"/>
+	
 </beans>

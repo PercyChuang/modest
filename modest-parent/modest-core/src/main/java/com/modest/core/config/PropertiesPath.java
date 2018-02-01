@@ -7,7 +7,7 @@ import org.springframework.core.io.Resource;
  * 默认路经在classpath:conf/*.properties
  * @author 庄濮向 Edmond Chuang
  */
-public class ProjectPropertiesPath {
+public class PropertiesPath {
 
 	private Resource[] locations;
 
@@ -15,9 +15,8 @@ public class ProjectPropertiesPath {
 		return locations;
 	}
 
-	public void setLocations(Resource[] locations) {
+	public void setLocations(Resource... locations) {
 		this.locations = locations;
 	}
-	
 	
 }

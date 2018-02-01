@@ -7,8 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.support.PersistenceExceptionTranslator;
 
 /**
- * 无论多少个DAO都使用同一个sqlSession
- * close时输出日志便于框架问题 定位。
+ *SqlSessionTemplate 是 MyBatis-Spring 的核心。
+ * 这个类负责管理 MyBatis 的 SqlSession, 调用 MyBatis 的 SQL 方法, 翻译异常。 
+ * SqlSessionTemplate 是线程安全的。
  * @author 庄濮向 Edmond Chuang
  */
 public class SqlSessionTemplate extends org.mybatis.spring.SqlSessionTemplate {
