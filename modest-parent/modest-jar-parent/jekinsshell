@@ -1,0 +1,13 @@
+project_name='p03-lmw-user-container-dubbo-front'
+pack_name='lmw-user-container-dubbo-bin.zip'
+base_dir='/var/lib/jenkins/jobs'
+workspace="${base_dir}/${project_name}/workspace/lmw-user-dubbo-parent/"
+project_dir=${workspace}lmw-user-container-dubbo/target
+src_pack=${project_dir}/$pack_name
+remote_dir='/data/server/dubbo-server'
+remote_ip='192.168.2.223'
+
+scp $src_pack root@${remote_ip}:${remote_dir}
+ssh root@${remote_ip} "rm -rf /data/server/dubbo-server/lmw-user-container-dubbo/*"
+ssh root@${remote_ip} "cd ${remote_dir};unzip -o ${pack_name}"
+ssh root@${remote_ip} "source /etc/profile ;${remote_dir}/lmw-user-container-dubbo/bin/restart.sh"

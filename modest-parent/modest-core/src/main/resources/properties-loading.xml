@@ -14,7 +14,7 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 		<property name="locations">
             <array>
-                <value>file:/etc/properties/*.properties</value>
+                <value>file:/etc/properties/**/*.properties</value>
             </array>
         </property>
 	</bean>
@@ -23,7 +23,7 @@
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="locations">
 			<array>
-				<value>classpath:config/*.properties</value>
+				<value>classpath:config/**/*.properties</value>
 			</array>
 		</property>
 	</bean>

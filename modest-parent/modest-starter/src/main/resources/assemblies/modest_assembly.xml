@@ -9,8 +9,11 @@
     <dependencySets>
         <dependencySet>
             <outputDirectory>lib</outputDirectory>
+            <directoryMode>755</directoryMode>
+			<fileMode>644</fileMode>
             <scope>runtime</scope>
         </dependencySet>
+        
         <dependencySet>
             <includes>
                 <include>com.modest:modest-starter</include>
@@ -19,19 +22,40 @@
             <unpack>true</unpack>
             <unpackOptions>
                 <includes>
-                    <include>**/startup/Startup.class</include>
+                    <include>/*.sh</include>
                 </includes>
             </unpackOptions>
+            <directoryMode>755</directoryMode>
+			<fileMode>755</fileMode>
         </dependencySet>
     </dependencySets>
     <fileSets>
         <fileSet>
             <directory>${app.build.classpath}/config</directory>
             <outputDirectory>/config</outputDirectory>
+            <includes>
+				<include>*</include>
+			</includes>
+            <directoryMode>755</directoryMode>
+			<fileMode>644</fileMode>
+			<lineEnding>unix</lineEnding>
         </fileSet>
         <fileSet>
-            <directory>${app.build.classpath}/bin</directory>
-            <outputDirectory>/bin</outputDirectory>
+        	<directory>${app.build.classpath}/</directory>
+        	<outputDirectory>/config</outputDirectory>
+        	<includes>
+        		<include>logback.xml</include>
+        	</includes>
+        	<directoryMode>755</directoryMode>
+			<fileMode>644</fileMode>
+			<lineEnding>unix</lineEnding>
         </fileSet>
+       <!--  <fileSet>
+			<outputDirectory>/logs</outputDirectory>
+			<directoryMode>755</directoryMode>
+			<includes>
+				<include>./</include>
+			</includes>
+		</fileSet> -->
     </fileSets>
 </assembly>
