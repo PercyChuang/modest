@@ -14,6 +14,27 @@ public class RpcTest extends TestBase{
 	@Autowired
 	private MyselfDubbo xx;
 	
+	public static void hide() {
+		System.out.println("son ");
+	}
+	
+	public  void overri() {
+		System.out.println("son overri");
+	}
+	
+	public static void main(String[] args) {
+		RpcTest son = new RpcTest();
+		son.hide();
+		RpcTest.hide();
+		son.overri();
+		
+		TestBase parent = son;
+		parent.hide();
+		TestBase.hide();
+		parent.overri();//静态的跟着类走，不是静态的跟着对象走。
+		
+	}
+	
 	@Test
 	public void test() {
 		String back = usename.getMessage("hello");
