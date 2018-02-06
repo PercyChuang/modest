@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:p="http://www.springframework.org/schema/p" xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-			http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
-			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+			">
 
-	<import resource="classpath:modest.xml" />
+	<import resource="classpath*:modest.xml" />
 	
-	<!-- 配置文件加载位置  必须配置，如果配置地址存在将加载，不存在默认读取classpath:config/*.properties-->
-	<bean parent="propertiesPath">
-		<property name="locations">
-            <array><value>file:/etc/lmw/framework-demo/config/*.properties</value></array>
-        </property>
-	</bean>
-	
-	<!-- 扫描DAO -->
-	<bean class="com.modest.core.config.ScannerConfigurer">
-		<property name="basePackages">
-			<array><value>com.demo.dao</value></array>
-		</property>
-	</bean>
-
 	<!-- 扫描Service -->
 	<context:component-scan annotation-config="true" base-package="com.demo.service">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+			">
+			
+	<!-- 框架必要配置文件加载 -->
+	<import resource="classpath*:properties-loading.xml"/>
+	<!-- 加入rpc框架配置文件自动载入 -->
+	<import resource="classpath*:modes_spring_dubbo.xml"/>
+	
+	<!-- 自动加载base.xml -->
+	<import resource="classpath*:base.xml"/>
+	
+	<!-- 
+	See:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
+	Configures the annotation-driven Spring MVC Controller programming model.
+	Note that this tag works in Web MVC only, not in Portlet MVC!
+	See org.springframework.web.servlet.config.annotation.EnableWebMvc javadoc for details
+	on code-based alternatives to enabling annotation-driven Spring MVC support.
+	 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+		    	<constructor-arg value="UTF-8" />
+			</bean>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="prettyPrint" value="true"/>
+            </bean>			
+  		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<!-- 文件上传配置 -->
+   <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <property name="defaultEncoding" value="utf-8"></property>   
+        <property name="maxUploadSize" value="10485760"></property>  
+        <property name="maxInMemorySize" value="40960"></property>
+   </bean> -->
+   
+    <!-- 静态资源处理 -->
+	<!-- <mvc:default-servlet-handler/> -->
+	
+	<!-- 定义无需controller处理的请求 -->
+	<!-- <mvc:view-controller path="/" view-name="redirect:/login.html"/> -->
+	
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		 <property name="prefix" value="/" />
+		 <property name="suffix" value=".html" />
+	</bean> -->
+
+	<!-- 将Controller抛出的异常转到特定View, 保持SiteMesh的装饰效果 -->
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+		<property name="exceptionMappings">  
+			<props>  
+				<prop key="java.lang.Throwable">error/500</prop>
+            </props>  
+		</property>  
+    </bean> -->
+    
+</beans>

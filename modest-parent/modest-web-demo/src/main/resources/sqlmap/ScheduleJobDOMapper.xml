@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.modest.web.dao.ScheduleJobDOMapper" >
+  <resultMap id="BaseResultMap" type="com.modest.web.pojo.ScheduleJobDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="SCHEDULE_JOB_ID" property="scheduleJobId" jdbcType="BIGINT" />
+    <result column="JOB_NAME" property="jobName" jdbcType="VARCHAR" />
+    <result column="ALIAS_NAME" property="aliasName" jdbcType="VARCHAR" />
+    <result column="JOB_GROUP" property="jobGroup" jdbcType="VARCHAR" />
+    <result column="JOB_TRIGGER" property="jobTrigger" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="CRON_EXPRESSION" property="cronExpression" jdbcType="VARCHAR" />
+    <result column="IS_SYNC" property="isSync" jdbcType="INTEGER" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="GMT_CREATE" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="GMT_MODIFY" property="gmtModify" jdbcType="TIMESTAMP" />
+
+    <result column="DAY_OF_MONTH" property="dayOfMonth" jdbcType="INTEGER" />
+    <result column="HOUR" property="hour" jdbcType="INTEGER" />
+    <result column="MINUTE" property="minute" jdbcType="INTEGER" />
+    <result column="SECOND" property="second" jdbcType="INTEGER" />
+    <result column="JOB_CLASS" property="jobClass" jdbcType="VARCHAR" />
+
+    <result column="EXEC_TIME" property="execTime" jdbcType="TIMESTAMP" />
+    <result column="NEXT_EXEC_TIME" property="nextExecTime" jdbcType="TIMESTAMP" />
+    <result column="PARAMS" property="params" jdbcType="VARCHAR" />
+  </resultMap>
+ 
+  <sql id="Base_Column_List" >
+    id, SCHEDULE_JOB_ID, JOB_NAME, ALIAS_NAME, JOB_GROUP, JOB_TRIGGER, STATUS, CRON_EXPRESSION, 
+    IS_SYNC, DESCRIPTION, GMT_CREATE, GMT_MODIFY, DAY_OF_MONTH, HOUR, MINUTE, SECOND, JOB_CLASS,PARAMS
+  </sql>
+  
+  <select id="getByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from schedule_job
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+  	select * from schedule_job;
+  </select>
+ 
+</mapper>

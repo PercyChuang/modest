@@ -37,6 +37,19 @@
 	</bean> 
 	
 	<!-- 
+		指定默认dao路径。
+		如果要扩展，请继承该类，传入除dao和mapper以外的其他路径
+	-->
+	<bean class="com.modest.core.config.ScannerConfigurer">
+		<property name="basePackages">
+			<array>
+				<value>com.**.dao</value>
+				<value>com.**.mapper</value>
+			</array>
+		</property>
+	</bean>
+	
+	<!-- 
 		SqlSessionTemplate 是 MyBatis-Spring 的核心 
 		分为三个执行器：SIMPLE默认 REUSE重用 BATCH批量操作
 		这里配置三种不同执行器的session，在某种场景的时候，可自选使用。

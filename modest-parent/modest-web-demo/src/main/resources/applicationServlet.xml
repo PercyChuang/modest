@@ -3,7 +3,9 @@
 	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 			http://www.springframework.org/schema/tx
@@ -12,21 +14,12 @@
 			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 			">
+		
+	<import resource="classpath*:modest-mvc.xml" />
 	
-	<!-- 在加载其它配置文件之前开启自动代理模式; -->
-	<aop:aspectj-autoproxy proxy-target-class="true" />
-	
-	<!-- spring 上下文件支持 -->
-	<bean class="com.modest.core.util.ApplicationContextHolder" destroy-method="destroy" />
-	
-	<!-- 框架必要配置文件加载 -->
-	<import resource="classpath*:properties-loading.xml"/>
-	<import resource="classpath*:datasource-c3p0.xml" />
-	<import resource="classpath*:tx-datasource.xml" />
-	<import resource="classpath*:mysql-mybatis.xml"/>
-	<import resource="classpath*:modes_spring_dubbo.xml"/>
-	
-	<!-- 自动加载base.xml -->
-	<import resource="classpath*:base.xml"/>
-	
+	<context:component-scan base-package="com.modest.web.controller" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+    
 </beans>

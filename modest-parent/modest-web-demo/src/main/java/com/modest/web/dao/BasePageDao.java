@@ -1,4 +1,4 @@
-package com.demo.dao;
+package com.modest.web.dao;
 
 import java.util.List;
 
