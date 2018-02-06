@@ -8,4 +8,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class TestBase {
 
+	public static void hide() {
+		System.out.println("parent ");
+	}
+	
+	public  void overri() {
+		System.out.println("parent overri");
+	}
 }
