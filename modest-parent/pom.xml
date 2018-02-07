@@ -21,7 +21,7 @@
 		<project.build.encoding>UTF-8</project.build.encoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring.groupId>org.springframework</spring.groupId>
-		<spring.version>4.1.3.RELEASE</spring.version>
+		<spring.version>4.3.13.RELEASE</spring.version>
 		<spring.batch.groupId>org.springframework.batch</spring.batch.groupId>
 		<spring.batch.version>3.0.1.RELEASE</spring.batch.version>
 		<poi.groupId>org.apache.poi</poi.groupId>
@@ -63,7 +63,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<commons-logging.version>1.1.1</commons-logging.version>
 		<commons-fileupload.version>1.2.2</commons-fileupload.version>
-		<jackson-databind.version>2.4.2</jackson-databind.version>
+		<fjackson.version>2.9.0</fjackson.version>
 		<c3p0.version>0.9.5-pre9</c3p0.version>
 		<mchange-commons-java.version>0.2.7</mchange-commons-java.version>
 		<bonecp.version>0.7.1.RELEASE</bonecp.version>
@@ -135,6 +135,13 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
 				<version>${druid.version}</version>
@@ -187,7 +194,17 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
-				<version>${jackson-databind.version}</version>
+				<version>${fjackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${fjackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${fjackson.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.mchange</groupId>

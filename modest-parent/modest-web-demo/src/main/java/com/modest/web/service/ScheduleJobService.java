@@ -24,20 +24,12 @@ public class ScheduleJobService {
 	@Value("${jdbc.write.pool.size.max}")
 	private String pro;
 	
-	@Autowired
-	private ScheduleJobDO bb;
-	
-	@Autowired
-	private ScheduleJobDO cc;
-	
 	/**
 	 * 以非事务的方式来执行
 	 * @return
 	 */
 	//@Transactional(propagation = Propagation.NEVER)
 	public ScheduleJobDO test() {
-		System.out.println(bb);
-		System.out.println(cc);
 		System.out.println("service里面能否拿到配置文件："+pro);
 		
 		ScheduleJobDO result = scheduleJobDOMapper.getByPrimaryKey(9L);

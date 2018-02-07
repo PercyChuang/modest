@@ -4,16 +4,17 @@
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
-			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 			http://www.springframework.org/schema/tx
-			http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 			http://www.springframework.org/schema/aop
-			http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+			http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
  
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		p:dataSource-ref="dataSource" p:defaultTimeout="3" />
 
+	<!-- 代理dataSource，增强对dataSource事务的管理功能  支持JdbcTemplate-->
 	<bean id="dataSourceProxy"
 		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
 		<property name="targetDataSource" ref="dataSource" />

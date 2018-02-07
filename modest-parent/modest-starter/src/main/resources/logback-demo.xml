@@ -2,7 +2,7 @@
 <!DOCTYPE configuration>
 <configuration debug="false" scan="false">
     <contextName>${project.name}</contextName>
-    <Property name="log.base" value="./etc/lmw/logs" />
+    <Property name="log.base" value="/data/logs" />
     <Property name="log.pname" value="${project.name}" />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
