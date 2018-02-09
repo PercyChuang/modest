@@ -858,6 +858,7 @@
 						<manifest>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							<useUniqueVersions>false</useUniqueVersions>
 						</manifest>
 					</archive>
 				</configuration>

@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-
+	
 	<parent>
 		<groupId>com.modest</groupId>
 		<artifactId>modest-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
+	<modelVersion>4.0.0</modelVersion>
 	<artifactId>modest-jar-parent</artifactId>
 	<packaging>pom</packaging>
 	
@@ -42,7 +42,16 @@
 						<exclude>bin/**</exclude>
 						<exclude>config/**</exclude>
 						<exclude>logback.xml</exclude>
+						<exclude>**/logback-test.xml</exclude>
+						<exclude>**/*-filter.properties</exclude>
 					</excludes>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							<useUniqueVersions>false</useUniqueVersions>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 			<!-- 启用filter协助不同环境变量的应用 -->

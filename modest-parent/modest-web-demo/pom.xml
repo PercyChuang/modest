@@ -5,6 +5,7 @@
 		<groupId>com.modest</groupId>
 		<artifactId>modest-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>modest-web-demo</artifactId>

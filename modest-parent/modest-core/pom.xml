@@ -20,13 +20,6 @@
 			<artifactId>modest-log</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
-	
-		<dependency>
-			<groupId>com.modest</groupId>
-			<artifactId>modest-log</artifactId>
-			<version>${modest.version}</version>
-		</dependency>
-
 		<dependency>
 			<groupId>${spring.groupId}</groupId>
 			<artifactId>spring-core</artifactId>

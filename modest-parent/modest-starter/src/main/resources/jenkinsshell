@@ -1,0 +1,2 @@
+cd /var/lib/jenkins/jobs/p06-lmw-manage-oss-front/builds
+rm -rfv `ls | grep -v "${BUILD_NUMBER}"`
