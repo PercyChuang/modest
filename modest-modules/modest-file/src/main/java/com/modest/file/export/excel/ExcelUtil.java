@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
  * 处理excel的工具类
  * @author Edmond Chuang
  */
+@SuppressWarnings("rawtypes")
 public class ExcelUtil {
 
 	private static Logger logger = LoggerFactory.getLogger(ExcelUtil.class);
@@ -36,7 +37,7 @@ public class ExcelUtil {
 	 * @throws Exception
 	 */
 	public static void exportForWeb(File templateFile,
-			Map<String, Object> param,String desFileName,
+			Map param,String desFileName,
 			HttpServletResponse response,HttpServletRequest request)throws Exception {
 		exportForWeb(templateFile,param,desFileName,response,request,null);
 	}
@@ -50,7 +51,7 @@ public class ExcelUtil {
 	 * @throws Exception
 	 */
 	public static void exportForWeb(String templatePath,
-			Map<String, Object> param,String desFileName,
+			Map param,String desFileName,
 			HttpServletResponse response,HttpServletRequest request)throws Exception {
 		File templateFile = new File(templatePath);
 		exportForWeb(templateFile,param,desFileName,response,request);
@@ -66,7 +67,7 @@ public class ExcelUtil {
 	 * @throws Exception
 	 */
 	public static void exportForWeb(String templatePath,
-			Map<String, Object> param,String desFileName,
+			Map param,String desFileName,
 			HttpServletResponse response,HttpServletRequest request,SheetHandler sheetHandler)throws Exception {
 		File templateFile = new File(templatePath);
 		exportForWeb(templateFile,param,desFileName,response,request,sheetHandler);
@@ -82,7 +83,7 @@ public class ExcelUtil {
 	 * @throws Exception
 	 */
 	public static void exportForWeb(File templateFile,
-			Map<String, Object> param,String desFileName,
+			Map param,String desFileName,
 			HttpServletResponse response,HttpServletRequest request,SheetHandler sheetHandler)throws Exception {
 		if (!templateFile.exists()) {
 			logger.error("export template file not exists!");
@@ -96,43 +97,43 @@ public class ExcelUtil {
 		exportToOutputStream(templateFile,param,response.getOutputStream(),sheetHandler);
 	}
 	
-	public static void exportToOutputStream(String templatePath,Map<String, Object> data,OutputStream resultOutputStream,SheetHandler sheetHandler) throws Exception {
+	public static void exportToOutputStream(String templatePath,Map data,OutputStream resultOutputStream,SheetHandler sheetHandler) throws Exception {
 		exportToOutputStream(new FileInputStream(templatePath),data,resultOutputStream,sheetHandler);
     }
 	
-	public static void exportToOutputStream(File templateFile,Map<String, Object> data,OutputStream resultOutputStream,SheetHandler sheetHandler) throws Exception {
+	public static void exportToOutputStream(File templateFile,Map data,OutputStream resultOutputStream,SheetHandler sheetHandler) throws Exception {
 		exportToOutputStream(new FileInputStream(templateFile),data,resultOutputStream,sheetHandler);
     }
 	
-	public static void exportToOutputStream(String templatePath,Map<String, Object> data,OutputStream resultOutputStream) throws Exception {
+	public static void exportToOutputStream(String templatePath,Map data,OutputStream resultOutputStream) throws Exception {
 		exportToOutputStream(new FileInputStream(templatePath),data,resultOutputStream,null);
     }
 	
-	public static void exportToOutputStream(File templateFile,Map<String, Object> data,OutputStream resultOutputStream) throws Exception {
+	public static void exportToOutputStream(File templateFile,Map data,OutputStream resultOutputStream) throws Exception {
 		exportToOutputStream(new FileInputStream(templateFile),data,resultOutputStream,null);
     }
 	
-	public static void exportToFile(File templateFile,Map<String, Object> data,File resultFile) throws Exception {
+	public static void exportToFile(File templateFile,Map data,File resultFile) throws Exception {
 		exportToOutputStream(templateFile,data,new FileOutputStream(resultFile));
 	}
 	
-	public static void exportToFile(String templatePath,Map<String, Object> data,File resultFile,SheetHandler sheetHandler) throws Exception {
+	public static void exportToFile(String templatePath,Map data,File resultFile,SheetHandler sheetHandler) throws Exception {
 		exportToOutputStream(templatePath,data,new FileOutputStream(resultFile),sheetHandler);
 	}
 
-	public static void exportToFile(File templateFile,Map<String, Object> data,File resultFile,SheetHandler sheetHandler) throws Exception {
+	public static void exportToFile(File templateFile,Map data,File resultFile,SheetHandler sheetHandler) throws Exception {
 		exportToOutputStream(templateFile,data,new FileOutputStream(resultFile),sheetHandler);
 	}
 	
-	public static void exportToFile(String templatePath,Map<String, Object> data,File resultFile) throws Exception {
+	public static void exportToFile(String templatePath,Map data,File resultFile) throws Exception {
 		exportToOutputStream(templatePath,data,new FileOutputStream(resultFile));
 	}
 	
-	public static void exportToWindowsDown(String templatePath,Map<String, Object> data,File resultFile) throws Exception {
+	public static void exportToWindowsDown(String templatePath,Map data,File resultFile) throws Exception {
 		exportToOutputStream(templatePath,data,new FileOutputStream(resultFile));
 	}
 	
-	public static void exportToOutputStream(InputStream templateInputStream,Map<String, Object> data,OutputStream resultOutputStream,SheetHandler sheetHandler) throws Exception {
+	public static void exportToOutputStream(InputStream templateInputStream, Map data,OutputStream resultOutputStream,SheetHandler sheetHandler) throws Exception {
 		XLSTransformer transformer = new XLSTransformer();
 		Workbook workBook = transformer.transformXLS(templateInputStream, data);
 		if (sheetHandler != null) {
@@ -145,8 +146,11 @@ public class ExcelUtil {
 	}
 	
 	private static void httpHandler(HttpServletResponse response,HttpServletRequest request,String fileName) {
-		if (null == fileName || "".equals(fileName) || !fileName.contains(".xls")) {
+		if (null == fileName || "".equals(fileName)) {
 			fileName = System.currentTimeMillis()+".xls";
+		}
+		if (!fileName.contains(".xls")) {
+			fileName = fileName+".xls";
 		}
 		fileName = encodingFileNameForBoorw(request,fileName);
 		response.setCharacterEncoding("utf-8");
