@@ -26,6 +26,7 @@
 		<spring.batch.version>3.0.1.RELEASE</spring.batch.version>
 		<poi.groupId>org.apache.poi</poi.groupId>
 		<poi.version>3.14</poi.version>
+		<jxls.version>1.0.2</jxls.version>
 		<slf4j.groupId>org.slf4j</slf4j.groupId>
 		<slf4j.version>1.7.7</slf4j.version>
 		<logback.groupId>ch.qos.logback</logback.groupId>
@@ -791,6 +792,18 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>jstl</artifactId>
 				<version>${jstl.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sf.jxls</groupId>
+				<artifactId>jxls-core</artifactId>
+				<version>${jxls.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sf.jxls</groupId>
+				<artifactId>jxls-reader</artifactId>
+				<version>${jxls.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
