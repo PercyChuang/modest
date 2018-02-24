@@ -1,0 +1,1 @@
+复制logback-sample.xml到你的项目，然后重命名为logback.xml

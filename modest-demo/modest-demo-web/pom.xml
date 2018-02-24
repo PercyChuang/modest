@@ -8,7 +8,7 @@
 		<relativePath></relativePath>
 	</parent>
 
-	<artifactId>modest-web-demo</artifactId>
+	<artifactId>modest-demo-web</artifactId>
 	<packaging>war</packaging>
 	<name>modest-web-demo</name>
 
@@ -73,7 +73,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>modest-web-demo</finalName>
+		<finalName>modest-demo-web</finalName>
 	</build>
 
 </project>

@@ -49,7 +49,7 @@ public class SimpleDemo {
 		//合并代码示例 有合并 可扩展成多个sheet回调的形式。
 		ExcelUtil.exportToOutputStream(TEMPLATE, paMap, new FileOutputStream("target/ee_output.xls"),new SheetHandler() {
 			@Override
-			public void doExce(Sheet sheet, Map<String, Object> data) {
+			public void doExce(Sheet sheet, Map data) {
 				@SuppressWarnings("unchecked")
 				List<Map<String, Object>> ls = (List<Map<String, Object>>) data.get("result");
 				for (int i = 0; i < ls.size(); i++) {
