@@ -18,7 +18,6 @@
 		<module>modest-core</module>
 		<module>modest-datasource</module>
 		<module>modest-mybatis</module>
-		<module>modest-rpc</module>
 		<module>modest-starter</module>
 		<module>modest-jar-parent</module>
 	</modules>
