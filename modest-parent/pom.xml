@@ -11,6 +11,19 @@
 	<packaging>pom</packaging>
 
 	<!-- ================================================= -->
+	<!-- 框架组件聚合 -->
+	<!-- ================================================= -->
+	<modules>
+		<module>modest-log</module>
+		<module>modest-core</module>
+		<module>modest-datasource</module>
+		<module>modest-mybatis</module>
+		<module>modest-rpc</module>
+		<module>modest-starter</module>
+		<module>modest-jar-parent</module>
+	</modules>
+
+	<!-- ================================================= -->
 	<!-- 版本配置 -->
 	<!-- ================================================= -->
 	<properties>
@@ -1078,16 +1091,5 @@
 			<url>http://192.168.2.110:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-	<!-- ================================================= -->
-	<!-- 框架组件聚合 -->
-	<!-- ================================================= -->
-	<modules>
-		<module>modest-log</module>
-		<module>modest-core</module>
-		<module>modest-datasource</module>
-		<module>modest-mybatis</module>
-		<module>modest-rpc</module>
-		<module>modest-starter</module>
-		<module>modest-jar-parent</module>
-	</modules>
+
 </project>

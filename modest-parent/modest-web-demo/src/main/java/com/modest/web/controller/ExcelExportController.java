@@ -39,7 +39,7 @@ public class ExcelExportController {
 		
 		ExcelUtil.exportForWeb(templat, getDate(), "导出示例", response, request,new SheetHandler() {
 			@Override
-			public void doExce(Sheet sheet, Map<String, Object> data) {
+			public void doExce(Sheet sheet, Map data) {
 				@SuppressWarnings("unchecked")
 				List<Map<String, Object>> ls = (List<Map<String, Object>>) data
 						.get("result");
