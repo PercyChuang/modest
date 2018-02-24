@@ -19,7 +19,7 @@
 		<module>modest-datasource</module>
 		<module>modest-mybatis</module>
 		<module>modest-starter</module>
-		<module>modest-jar-parent</module>
+		<module>modest-ass</module>
 	</modules>
 
 	<!-- ================================================= -->

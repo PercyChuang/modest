@@ -8,7 +8,7 @@
 	</parent>
 	
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>modest-parent-ass</artifactId>
+	<artifactId>modest-ass</artifactId>
 	<packaging>pom</packaging>
 	
 	<!-- ================================================= -->
