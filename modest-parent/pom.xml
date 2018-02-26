@@ -20,6 +20,8 @@
 		<module>modest-mybatis</module>
 		<module>modest-starter</module>
 		<module>modest-ass</module>
+		<module>../modest-modules/modest-file</module>
+		<module>../modest-modules/modest-rpc</module>
 	</modules>
 
 	<!-- ================================================= -->
