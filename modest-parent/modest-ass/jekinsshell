@@ -11,3 +11,48 @@ scp $src_pack root@${remote_ip}:${remote_dir}
 ssh root@${remote_ip} "rm -rf /data/server/dubbo-server/lmw-user-container-dubbo/*"
 ssh root@${remote_ip} "cd ${remote_dir};unzip -o ${pack_name}"
 ssh root@${remote_ip} "source /etc/profile ;${remote_dir}/lmw-user-container-dubbo/bin/restart.sh"
+
+
+
+---------------------------- -另一个jekins参照  执行脚本restart.sh restart会在打包的时候打到bin目录下面-----------------------------------
+
+
+echo '当前目录：'  `pwd`
+job_name="p001-test"
+local_module_directory="framework-demo"
+workspace="/var/lib/jenkins/jobs/${job_name}/workspace/${local_module_directory}"
+cd ${workspace}
+
+pack_name="framework-demo.zip"
+resource="${workspace}/target/${pack_name}"
+
+remote_dir='/data/server/modest'
+remote_ip='192.168.2.224'
+ssh root@${remote_ip} "rm -rf ${remote_dir}/*;"
+scp $resource root@${remote_ip}:${remote_dir}
+ssh root@${remote_ip} "cd ${remote_dir};unzip -o ${pack_name}"
+ssh root@${remote_ip} "source /etc/profile;${remote_dir}/framework-demo/bin/restart.sh"
+
+
+----------------------------------war包配置------------------
+首先去配置一个SSH SERVER
+然后在jekins job的Build里
+Root POM填入pom.xml
+Goals and options填入：clean install -B -e -U -Dmaven.test.skip=true
+Post Steps模块下选择 send files or execute commands over SSh
+在SSH Publishers下填入以下信息：
+Name选择一个SSH Server
+
+Transfers 下
+source files 填 入：target/xxxx.war
+Remove prefix 填入：target/
+Exec command 填入：需要执行的脚本名字和参数：
+示例：/opt/auto1.sh modest-web-demo 8090 /data/server/tomcat_modest-web-demo
+
+参照bin目录下的auto.sh脚本
+ 
+
+
+
+
+

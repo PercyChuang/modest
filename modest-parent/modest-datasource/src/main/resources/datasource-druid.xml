@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<import resource="classpath*:druid-config.xml" />
+	
+	<bean id="write" parent="commonDataSourceConfig_druid" lazy-init="true">
+		<property name="name" value="write"/>
+		<property name="driverClassName" value="${jdbc.write.driverclass}" />
+		<property name="url" value="${jdbc.write.url}" />
+		<property name="username" value="${jdbc.write.username}" />
+		<property name="password" value="${jdbc.write.password}" />
+		<property name="maxActive" value="${jdbc.write.pool.size.max}"/>
+	</bean>
+
+	<bean id="read" parent="commonDataSourceConfig_druid" lazy-init="true">
+		<property name="name" value="read"/>
+		<property name="driverClassName" value="${jdbc.read.driverclass}" />
+		<property name="url" value="${jdbc.read.url}" />
+		<property name="username" value="${jdbc.read.username}" />
+		<property name="password" value="${jdbc.read.password}" />
+		<property name="maxActive" value="${jdbc.read.pool.size.max}"/>
+	</bean>
+
+	<bean id="dataSource" class="com.modest.datasource.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="write" value-ref="write"></entry>
+				<entry key="read" value-ref="read"></entry>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="write" />
+	</bean>
+
+	<bean class="com.modest.datasource.DataSourceInitialize">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+</beans>

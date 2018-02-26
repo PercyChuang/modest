@@ -21,7 +21,7 @@
 	
 	<!-- 框架必要配置文件加载 -->
 	<import resource="classpath*:properties-loading.xml"/>
-	<import resource="classpath*:datasource-c3p0.xml" />
+	<import resource="classpath*:datasource-druid.xml" />
 	<import resource="classpath*:tx-datasource.xml" />
 	<import resource="classpath*:mysql-mybatis.xml"/>
 	<import resource="classpath*:modes_spring_dubbo.xml"/>

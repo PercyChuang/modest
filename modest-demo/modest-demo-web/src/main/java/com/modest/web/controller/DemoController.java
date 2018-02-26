@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.modest.web.service.ReadScheduleJobService;
 import com.modest.web.service.ScheduleJobService;
 
 @RestController
@@ -21,6 +22,9 @@ public class DemoController {
 	@Autowired
 	private ScheduleJobService scheduleJobService;
 	
+	@Autowired
+	private ReadScheduleJobService readScheduleJobService;
+	
 	private Logger logger = LoggerFactory.getLogger(DemoController.class);
 	
 	@RequestMapping(params = "method=007")
@@ -29,6 +33,8 @@ public class DemoController {
 		logger.info("ccc");
 		System.out.println("controller拿不到的，是因为不是一个上下文哦："+pro);
 		System.out.println(pa);
+		scheduleJobService.test();
+		readScheduleJobService.test();
 		scheduleJobService.test();
 		return "method 007 success";
 	}

@@ -10,12 +10,18 @@
 
 	<artifactId>modest-demo-web</artifactId>
 	<packaging>war</packaging>
-	<name>modest-web-demo</name>
+	<name>modest-demo-web</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.modest</groupId>
 			<artifactId>modest-starter</artifactId>
+			<version>${modest.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.modest</groupId>
+			<artifactId>modest-rpc</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		

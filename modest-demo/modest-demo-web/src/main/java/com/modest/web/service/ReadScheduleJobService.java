@@ -12,16 +12,18 @@ import com.modest.mybatis.SqlSessionTemplate;
 import com.modest.mybatis.util.CountHelper;
 import com.modest.web.dao.ScheduleJobDOMapper;
 import com.modest.web.pojo.ScheduleJobDO;
-@Service("scheduleJobService")
-public class ScheduleJobService {
+
+@DataSource("read")
+@Service("readScheduleJobService")
+public class ReadScheduleJobService {
 
 	@Autowired
 	private ScheduleJobDOMapper scheduleJobDOMapper;
 	
 	@Autowired
 	private SqlSessionTemplate reuseSqlSession;
-	@Autowired
-	private ReadScheduleJobService readScheduleJobService;
+	
+	
 	@Value("${jdbc.write.pool.size.max}")
 	private String pro;
 	
@@ -32,21 +34,10 @@ public class ScheduleJobService {
 	//@Transactional(propagation = Propagation.NEVER)
 	public ScheduleJobDO test() {
 		System.out.println("service里面能否拿到配置文件："+pro);
-		
 		ScheduleJobDO result = scheduleJobDOMapper.getByPrimaryKey(9L);
-		
 		List<ScheduleJobDO> results = scheduleJobDOMapper.queryAll(new RowBounds(0,10));
-		for (ScheduleJobDO scheduleJobDO : results) {
-			System.out.println(scheduleJobDO.getCronExpression());
-		}
 		System.out.println("总条数："+CountHelper.getTotalRow());
 		
-		//采用执行器的方式来查询数据
-		List<ScheduleJobDO> useSession = reuseSqlSession.selectList("mytemple.queryAll", null, new RowBounds(0,10));
-		for (ScheduleJobDO scheduleJobDO : useSession) {
-			System.out.println("use Session:" + scheduleJobDO.getCronExpression());
-		}
-		readScheduleJobService.test();
 		return result;
 	}
 	
