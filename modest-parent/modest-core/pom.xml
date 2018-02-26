@@ -5,16 +5,16 @@
 		<groupId>com.modest</groupId>
 		<artifactId>modest-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-	</parent> 
+	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>modest-core</artifactId>
 
-	<!-- ================================================= -->
-	<!-- 所有的组件都是依懒与这个core来完成的 -->
-	<!-- 基于spring作为框架基础 -->
-	<!-- ================================================= -->
 	<dependencies>
+		<!-- ================================================= -->
+		<!-- 所有的组件都是依懒与这个core来完成的 -->
+		<!-- 基于spring作为框架基础 -->
+		<!-- ================================================= -->
 		<dependency>
 			<groupId>com.modest</groupId>
 			<artifactId>modest-log</artifactId>
@@ -60,25 +60,36 @@
 			<groupId>${aspectj.groupId}</groupId>
 			<artifactId>aspectjweaver</artifactId>
 		</dependency>
-		<!-- 字节码编辑工具,可以直接编辑和生成Java生成的字节码,以达到对.class文件进行动态修改的效果 -->
+
+		<!-- ================================================= -->
+		<!-- 字节码编辑工具 -->
+		<!-- ================================================= -->
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
 		</dependency>
 
-		<!-- 摘要运算、编码的包 BinaryEncoders、DigestEncoders、LanguageEncoders、NetworkEncoders -->
+		<!-- ================================================= -->
+		<!-- 摘要运算、编码的包 -->
+		<!-- BinaryEncoders、DigestEncoders -->
+		<!-- LanguageEncoders、NetworkEncoders -->
+		<!-- ================================================= -->
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 		</dependency>
 
+		<!-- ================================================= -->
 		<!-- 集合工具类 -->
+		<!-- ================================================= -->
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 		</dependency>
-
-		<!-- servlet -->
+		
+		<!-- ================================================= -->
+		<!-- SERVLET -->
+		<!-- ================================================= -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -86,8 +97,27 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<!-- 只在编译和测试的时候用 发版使用tomcat里的 -->
 			<scope>provided</scope>
+		</dependency>
+
+		<!-- ================================================= -->
+		<!-- json 摘要 -->
+		<!-- ================================================= -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
 		</dependency>
 
 	</dependencies>
