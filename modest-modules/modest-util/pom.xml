@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.modest</groupId>
 		<artifactId>modest-parent</artifactId>
@@ -8,39 +9,32 @@
 		<relativePath></relativePath>
 	</parent>
 
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>modest-file</artifactId>
+	<artifactId>modest-util</artifactId>
 
 	<dependencies>
-
+	
 		<dependency>
 			<groupId>com.modest</groupId>
-			<artifactId>modest-log</artifactId>
+			<artifactId>modest-core</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
+		<!-- ================================================= -->
+		<!-- http -->
+		<!-- ================================================= -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<scope>provided</scope>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.jxls</groupId>
-			<artifactId>jxls-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.jxls</groupId>
-			<artifactId>jxls-reader</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>

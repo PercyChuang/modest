@@ -24,7 +24,7 @@
 	<import resource="classpath*:datasource-druid.xml" />
 	<import resource="classpath*:tx-datasource.xml" />
 	<import resource="classpath*:mysql-mybatis.xml"/>
-	<import resource="classpath*:modes_spring_dubbo.xml"/>
+	<import resource="classpath*:modest_spring_dubbo.xml"/>
 	
 	<!-- 自动加载base.xml -->
 	<import resource="classpath*:base.xml"/>
