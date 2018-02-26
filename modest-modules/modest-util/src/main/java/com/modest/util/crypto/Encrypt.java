@@ -6,13 +6,14 @@
  */
 package com.modest.util.crypto;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import java.security.Key;
+import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
-import java.security.Key;
-import java.security.SecureRandom;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 /**
  * DES加密
@@ -20,6 +21,7 @@ import java.security.SecureRandom;
  * @author lcl 2014/12/19.
  * @version 1.0.0
  */
+@SuppressWarnings("restriction")
 public class Encrypt {
     /**
      * 秘钥
@@ -68,8 +70,10 @@ public class Encrypt {
     }
 
     //加密String明文输入, String密文输出
-    public static String encString(String strMing){
-        BASE64Encoder base64en = new BASE64Encoder();
+    @SuppressWarnings("restriction")
+	public static String encString(String strMing){
+        @SuppressWarnings("restriction")
+		BASE64Encoder base64en = new BASE64Encoder();
         try {
             return base64en.encode(getEncCode(strMing.getBytes("UTF-8")));
         }catch(Exception e){

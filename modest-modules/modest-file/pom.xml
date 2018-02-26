@@ -15,7 +15,7 @@
 
 		<dependency>
 			<groupId>com.modest</groupId>
-			<artifactId>modest-log</artifactId>
+			<artifactId>modest-core</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
