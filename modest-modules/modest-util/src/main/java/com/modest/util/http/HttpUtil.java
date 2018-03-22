@@ -50,8 +50,6 @@ import com.alibaba.fastjson.JSONObject;
  * 
  * 类描述： 接口请求
  * 
- * 创建人： rod zhong 
- * 
  * 创建时间：2014年10月17日 下午3:03:25
  * 
  * Copyright (c) 深圳市XXX有限公司-版权所有

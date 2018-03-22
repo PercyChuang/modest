@@ -25,6 +25,9 @@
         <dependent-module archiveName="modest-file-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/modest-file/modest-file">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="modest-util-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/modest-util/modest-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/modest-web-demo/target/classes"/>
         <property name="context-root" value="modest-demo-web"/>
     </wb-module>
