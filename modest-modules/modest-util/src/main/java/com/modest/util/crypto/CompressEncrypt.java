@@ -57,7 +57,6 @@ public class CompressEncrypt {
            e.printStackTrace();
         }
 		return content;
-        //return LMWCipher.encrypt(content,this.key);
 	}
 
 	/**
@@ -68,72 +67,9 @@ public class CompressEncrypt {
 	 * @throws Exception
 	 */
 	public String deCode(String content) throws Exception {
-		/*BASE64Decoder base64De = new BASE64Decoder();
-        try {
-            String result =  new String(desDeCode(base64De.decodeBuffer(content)), "UTF-8");
-            return uncompress(result);
-        }catch(Exception e){
-            e.printStackTrace();
-        }*/
 		BASE64Decoder base64De = new BASE64Decoder();
 		content = new String(base64De.decodeBuffer(content), "UTF-8");
 		return uncompress(content);
-        //return LMWCipher.decrypt(this.key, content);
-	}
-	
-	
-	private byte[] desEnCode(byte[] byteS) {
-		byte[] byteFina = null;
-		Cipher cipher;
-		try {
-			cipher = Cipher.getInstance("DES/ECB/NoPadding");
-			cipher.init(Cipher.ENCRYPT_MODE, generateKey(this.key));
-			byteFina = cipher.doFinal(byteS);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			cipher = null;
-		}
-		return byteFina;
-	}
-
-	private byte[] desDeCode(byte[] byteD) {
-		Cipher cipher;
-		byte[] byteFina = null;
-		try {
-			cipher = Cipher.getInstance("DES/ECB/NoPadding");
-			cipher.init(Cipher.DECRYPT_MODE, generateKey(this.key));
-			byteFina = cipher.doFinal(byteD);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			cipher = null;
-		}
-		return byteFina;
-	}
-
-	private static Key generateKey_New(String keyStr) {
-		try {
-			KeyGenerator _generator = KeyGenerator.getInstance("DES/ECB/NoPadding");
-			_generator.init(new SecureRandom(keyStr.getBytes()));
-			Key key = _generator.generateKey();
-			return key;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	private Key generateKey(String strKey) {
-	    try {
-	        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES/ECB/NoPadding"); 
-	        DESKeySpec keySpec = new DESKeySpec(strKey.getBytes("UTF-8")); 
-	        keyFactory.generateSecret(keySpec); 
-	        return keyFactory.generateSecret(keySpec);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	    return null;
 	}
 	
 	private  String compress(String str) throws IOException {
