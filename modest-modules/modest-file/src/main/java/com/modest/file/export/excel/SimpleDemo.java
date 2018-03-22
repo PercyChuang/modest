@@ -21,10 +21,10 @@ import org.apache.poi.ss.util.CellRangeAddress;
  */
 public class SimpleDemo {
 
-	private static final String TEMPLATE_X = "F:/enterprise/modest-file/src/main/resources/com/modest/file/export/mx.xlsx";
+	private static final String TEMPLATE_X = "F:/gitwork/modest/modest-modules/modest-file/src/main/resources/com/modest/file/export/mx.xlsx";
 	private static final String OUTPUT_X = "target/mx_output.xlsx";
 	
-	private static final String TEMPLATE = "F:/enterprise/modest-file/src/main/resources/com/modest/file/export/m.xls";
+	private static final String TEMPLATE = "F:/gitwork/modest/modest-modules/modest-file/src/main/resources/com/modest/file/export/m.xls";
 	private static final String OUTPUT = "target/m_output.xls";
 	
 	
