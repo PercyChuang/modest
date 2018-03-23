@@ -57,6 +57,7 @@ public class ExcelReader {
 		}
 		return contents;
 	}
+	@SuppressWarnings("resource")
 	private static List<Map<String,String>> readExcelx(InputStream is) {
 		 XSSFWorkbook wb = null;
 		 List<Map<String,String>> ret = new ArrayList<Map<String,String>>();
@@ -103,6 +104,7 @@ public class ExcelReader {
      * @param InputStream
      * @return 
      */
+	@SuppressWarnings("resource")
 	private static List<Map<String,String>> readExcel(InputStream is) {
     	HSSFWorkbook wb = null;
     	List<Map<String,String>> ret = new ArrayList<Map<String,String>>();

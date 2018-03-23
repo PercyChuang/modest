@@ -48,6 +48,7 @@ public class SimpleDemo {
 		
 		//合并代码示例 有合并 可扩展成多个sheet回调的形式。
 		ExcelUtil.exportToOutputStream(TEMPLATE, paMap, new FileOutputStream("target/ee_output.xls"),new SheetHandler() {
+			@SuppressWarnings("rawtypes")
 			@Override
 			public void doExce(Sheet sheet, Map data) {
 				@SuppressWarnings("unchecked")
