@@ -15,7 +15,7 @@ fi
 
 echo -e "Stopping the server ...\c"
 for PID in $PIDS ; do
-    kill $PID > /dev/null 2>&1
+    kill -9 $PID > /dev/null 2>&1
 done
 
 COUNT=0

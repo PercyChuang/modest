@@ -12,24 +12,23 @@
 			http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 			">
+
+
+	<bean name="genericObjectPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
+		<property name="maxWaitMillis" value="-1" />
+		<property name="maxTotal" value="5000" />
+		<property name="minIdle" value="8" />
+		<property name="maxIdle" value="100" />
+	</bean>
+	<bean id="jedisCluster" class="com.modest.redis.factory.JedisClusterFactory">
+		<property name="addressList" value="${ADDRESS_LIST}" />
+		<property name="timeout" value="300000" />
+		<property name="maxRedirections" value="6" />
+		<property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />
+	</bean>
 	
-	<!-- 在加载其它配置文件之前开启自动代理模式; -->
-	<aop:aspectj-autoproxy proxy-target-class="true" />
-	
-	<!-- spring 上下文件支持 -->
-	<bean class="com.modest.core.util.ApplicationContextHolder" destroy-method="destroy" />
-	
-	<!-- 框架必要配置文件加载 -->
-	<import resource="classpath*:properties-loading.xml"/>
-	<import resource="classpath*:datasource-druid.xml" />
-	<import resource="classpath*:tx-datasource.xml" />
-	<import resource="classpath*:mysql-mybatis.xml"/>
-	<import resource="classpath*:modest_spring_dubbo.xml"/>
-	
-	<!-- 自动加载base.xml -->
-	<import resource="classpath*:base.xml"/>
-	
-	<!-- 自动加载redis相关的配置 -->
-	<import resource="classpath*:redisCluster.xml"/>
-	<import resource="classpath*:redis.xml"/>
+	 <bean id="redisClusterUtil" class="com.modest.redis.cluster.RedisClusterUtil" >
+ 		<property name="jedisCluster" ref="jedisCluster" />
+ 	</bean>
+ 
 </beans>

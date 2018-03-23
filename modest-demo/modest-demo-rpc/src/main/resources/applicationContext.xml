@@ -14,17 +14,22 @@
 			">
 
 	<import resource="classpath*:modest.xml" />
-	
+
 	<bean parent="propertiesPath">
 		<property name="locations">
-            <array><value>file:/etc/lmw/${project.name}/**/*.properties</value></array>
-        </property>
+			<array>
+				<value>file:/etc/lmw/${project.name}/**/*.properties</value>
+			</array>
+		</property>
 	</bean>
-	
-	<!-- 扫描Service -->
-	<context:component-scan annotation-config="true" base-package="com.demo.service">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository" />
-	</context:component-scan>
 
+	<!-- 扫描Service -->
+	<context:component-scan annotation-config="true"
+		base-package="com.demo.service">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
+ 
 </beans>

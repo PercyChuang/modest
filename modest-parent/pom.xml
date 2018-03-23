@@ -62,7 +62,7 @@
 		<shiro.version>1.2.2</shiro.version>
 		<cglib-nodep.version>3.1</cglib-nodep.version>
 		<spring-data-redis.version>1.3.1.RELEASE</spring-data-redis.version>
-		<jedis.version>2.5.1</jedis.version>
+		<jedis.version>2.9.0</jedis.version>
 		<quartz.version>2.2.1</quartz.version>
 		<mybatis.spring.version>1.2.2</mybatis.spring.version>
 		<mybatis.version>3.2.8</mybatis.version>
@@ -121,7 +121,6 @@
 		<zkclient_version>0.1</zkclient_version>
 		<tomcat_embed_version>8.0.11</tomcat_embed_version>
 		<jboss_resteasy_version>3.0.7.Final</jboss_resteasy_version>
-		<jedis.version>2.6.1</jedis.version>
 		<assertj.version>1.7.0</assertj.version>
 		<mockito.version>1.10.8</mockito.version>
 		<nosqlunit.version>0.8.0</nosqlunit.version>
