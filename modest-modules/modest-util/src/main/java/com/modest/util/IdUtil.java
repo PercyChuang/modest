@@ -1,4 +1,4 @@
-package com.modest.util.id;
+package com.modest.util;
 
 import java.util.HashMap;
 import java.util.HashSet;
