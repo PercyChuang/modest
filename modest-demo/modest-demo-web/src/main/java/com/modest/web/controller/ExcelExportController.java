@@ -2,7 +2,6 @@ package com.modest.web.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +38,7 @@ public class ExcelExportController {
 		
 		ExcelUtil.exportForWeb(templat, getDate(), "导出示例", response, request,new SheetHandler() {
 			@Override
-			public void doExce(Sheet sheet, Map data) {
+			public void doExce(Sheet sheet, @SuppressWarnings("rawtypes") Map data) {
 				@SuppressWarnings("unchecked")
 				List<Map<String, Object>> ls = (List<Map<String, Object>>) data
 						.get("result");

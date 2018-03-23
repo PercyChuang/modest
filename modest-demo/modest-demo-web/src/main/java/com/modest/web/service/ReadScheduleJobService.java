@@ -32,6 +32,7 @@ public class ReadScheduleJobService {
 	 * @return
 	 */
 	//@Transactional(propagation = Propagation.NEVER)
+	@SuppressWarnings("unused")
 	public ScheduleJobDO test() {
 		System.out.println("service里面能否拿到配置文件："+pro);
 		ScheduleJobDO result = scheduleJobDOMapper.getByPrimaryKey(9L);
