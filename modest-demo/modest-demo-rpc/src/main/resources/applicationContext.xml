@@ -14,7 +14,8 @@
 			">
 
 	<import resource="classpath*:modest.xml" />
-
+	<import resource="classpath*:redisCluster.xml" />
+	
 	<bean parent="propertiesPath">
 		<property name="locations">
 			<array>
