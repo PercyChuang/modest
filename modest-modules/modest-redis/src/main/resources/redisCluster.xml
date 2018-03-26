@@ -21,7 +21,7 @@
 		<property name="maxIdle" value="100" />
 	</bean>
 	<bean id="jedisCluster" class="com.modest.redis.factory.JedisClusterFactory">
-		<property name="addressList" value="${ADDRESS_LIST}" />
+		<!-- <property name="addressList" value="${redis.cluster.list}" /> -->
 		<property name="timeout" value="300000" />
 		<property name="maxRedirections" value="6" />
 		<property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />

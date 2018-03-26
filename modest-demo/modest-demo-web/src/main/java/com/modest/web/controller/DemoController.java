@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.modest.redis.RedisUtil;
 import com.modest.redis.cluster.RedisClusterUtil;
 import com.modest.web.service.ReadScheduleJobService;
 import com.modest.web.service.ScheduleJobService;
@@ -26,19 +27,30 @@ public class DemoController {
 	@Autowired
 	private ReadScheduleJobService readScheduleJobService;
 	
+	/**
+	 * 集群redis测试
+	 */
+	//@Autowired
+	//private RedisClusterUtil redisClusterUtil;
+	
 	@Autowired
-	private RedisClusterUtil redisClusterUtil;
+	private RedisUtil modestRedisUtil;
 	
 	private Logger logger = LoggerFactory.getLogger(DemoController.class);
 	
 	@RequestMapping(params = "method=007")
 	public Object useMethod(HttpServletRequest request,String pa) {
 		String key = "redisClusterKey";
-		redisClusterUtil.set(key, "hello cluster!");
+		//redisClusterUtil.set(key, "hello cluster!");
 		
-		String value = redisClusterUtil.getString(key);
+		//String value = redisClusterUtil.getString(key);
 		
-		System.out.println(value);
+		modestRedisUtil.setVal(key, "你好阿里云redis!");
+		
+		String value1 = modestRedisUtil.getVal(key);
+		
+		System.out.println(value1);
+		//System.out.println(value);
 		
 		
 		logger.debug("123213");

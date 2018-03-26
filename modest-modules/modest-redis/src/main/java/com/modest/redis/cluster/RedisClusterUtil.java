@@ -24,22 +24,6 @@ import com.modest.core.util.SerializeUtil;
 public class RedisClusterUtil {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	/**
-	 * 
-	<bean name="genericObjectPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig" >
-			<property name="maxWaitMillis" value="-1" />
-			<property name="maxTotal" value="5000" />
-			<property name="minIdle" value="8" />
-			<property name="maxIdle" value="100" />
-	</bean>
-	<bean id="jedisCluster" class="com.modest.redis.factory.JedisClusterFactory">
-		<property name="addressList" value="${ADDRESS_LIST}" />
-		<property name="timeout" value="300000" />
-		<property name="maxRedirections" value="6" />
-		<property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />
-	</bean>
-	
-	 */
 	private JedisCluster jedisCluster; 
 	
 	private static final int DEFAULT_ACQUIRY_RESOLUTION_MILLIS = 100;

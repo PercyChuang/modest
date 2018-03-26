@@ -29,7 +29,9 @@
 	<!-- 自动加载base.xml -->
 	<import resource="classpath*:base.xml"/>
 	
-	<!-- 自动加载redis相关的配置 -->
+	<!-- 手动加载redis相关的配置 -->
+	<!-- 
 	<import resource="classpath*:redisCluster.xml"/>
-	<import resource="classpath*:redis.xml"/>
+	<import resource="classpath*:redisPool.xml"/> 
+	-->
 </beans>

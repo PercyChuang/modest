@@ -4,6 +4,23 @@ import java.util.UUID;
 
 import redis.clients.jedis.JedisCluster;
 
+/**
+		JedisClusterLock lock = null; // 分布式锁
+		int expireMsecs = 60 * 1000; // 锁超时时间，防止线程在入锁以后，无限的执行等待(毫秒)
+		int timeoutMsecs = 1000; // 锁等待时间，防止线程饥饿(毫秒)
+		
+		String businessType = "zyb_full_scale";
+		String lockName = fullScaleMessage.getBorrowId()  + businessType;
+		lock = new JedisClusterLock(redisUtil.getPropertyJedis(), lockName, // 锁名称
+				timeoutMsecs, //
+				expireMsecs //
+		);
+		if (!lock.acquire()) {
+			logger.info("当前请求的满标业务正在处理!borrowId:" + fullScaleMessage.getBorrowId() + ",业务类型:" + businessType);
+			return ;
+		}
+
+ */
 public class JedisClusterLock {
 
     private static final Lock NO_LOCK = new Lock(new UUID(0l,0l), 0l);
