@@ -51,6 +51,7 @@ public class JedisPoolFactory {
 		}
        return jedis;
     }
+    
     /** 
      * 返还到连接池 
      *  
@@ -60,7 +61,6 @@ public class JedisPoolFactory {
     public void returnResource(Jedis jedis) {  
         if (jedis != null) {
         	jedis.close();
-           // pool.returnResourceObject(jedis);
         }  
     }
 
