@@ -1,0 +1,15 @@
+echo '当前目录：'  `pwd`
+job_name="p001-test"
+local_module_directory="framework-demo"
+workspace="/var/lib/jenkins/jobs/${job_name}/workspace/${local_module_directory}"
+cd ${workspace}
+
+pack_name="framework-demo.zip"
+resource="${workspace}/target/${pack_name}"
+
+remote_dir='/data/server/modest'
+remote_ip='192.168.2.224'
+ssh root@${remote_ip} "rm -rf ${remote_dir}/*;"
+scp $resource root@${remote_ip}:${remote_dir}
+ssh root@${remote_ip} "cd ${remote_dir};unzip -o ${pack_name}"
+ssh root@${remote_ip} "source /etc/profile;${remote_dir}/framework-demo/bin/restart.sh"
