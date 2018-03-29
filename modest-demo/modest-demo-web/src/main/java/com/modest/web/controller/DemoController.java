@@ -1,5 +1,7 @@
 package com.modest.web.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -9,8 +11,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.modest.jms.activemq.sender.QueueSender;
 import com.modest.redis.RedisUtil;
-import com.modest.redis.cluster.RedisClusterUtil;
 import com.modest.web.service.ReadScheduleJobService;
 import com.modest.web.service.ScheduleJobService;
 
@@ -26,6 +28,9 @@ public class DemoController {
 	
 	@Autowired
 	private ReadScheduleJobService readScheduleJobService;
+	
+	@Autowired
+	private QueueSender sender;
 	
 	/**
 	 * 集群redis测试
@@ -60,6 +65,21 @@ public class DemoController {
 		scheduleJobService.test();
 		readScheduleJobService.test();
 		scheduleJobService.test();
+		
+		
+		logger.info("jms 发送信息测试开始 ");
+		HashMap<String, Object> jmsParam = new HashMap<String,Object> ();
+		jmsParam.put("12", "庄濮向1");
+		jmsParam.put("34", "庄濮向2");
+		jmsParam.put("56", "庄濮向3");
+		jmsParam.put("78", "庄濮向4");
+		jmsParam.put("910", "庄濮向5");
+		jmsParam.put("1112", "庄濮向6");
+		sender.send("demoTopic", "hello");
+		sender.send("demoTopic1", "hello");
+		sender.send("demoTopic2", "hello");
+		sender.send("demoTopic3", "hello");
+		
 		return "method 007 success";
 	}
 	

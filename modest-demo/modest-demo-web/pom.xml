@@ -19,6 +19,7 @@
 			<version>${modest.version}</version>
 		</dependency>
 		
+		<!-- 以下是可选组件，上面是必须 -->
 		<dependency>
 			<groupId>com.modest</groupId>
 			<artifactId>modest-rpc</artifactId>
@@ -40,6 +41,12 @@
 		<dependency>
 			<groupId>com.modest</groupId>
 			<artifactId>modest-redis</artifactId>
+			<version>${modest.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.modest</groupId>
+			<artifactId>modest-jms</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		

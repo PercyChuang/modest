@@ -29,6 +29,12 @@
 			<version>${modest.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.modest</groupId>
+			<artifactId>modest-jms</artifactId>
+			<version>${modest.version}</version>
+		</dependency>
+
 		<!-- 其他 -->
 		<dependency>
 			<groupId>com.lmw</groupId>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context-4.3.xsd
+			http://activemq.apache.org/schema/core
+       	    http://activemq.apache.org/schema/core/activemq-core-5.7.0.xsd
+			">
+
+	<!-- 重发策略设置 -->
+	<amq:redeliveryPolicyMap id="redeliveryPolicyMap">
+		<amq:redeliveryPolicyEntries>
+			<amq:redeliveryPolicy topic=">"
+				maximumRedeliveries="3" />
+			<amq:redeliveryPolicy queue=">"
+				maximumRedeliveries="3" />
+		</amq:redeliveryPolicyEntries>
+	</amq:redeliveryPolicyMap>
+
+	<bean id="modestJmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+		destroy-method="stop">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL">
+					<value>${jms.activemq.server}</value>
+				</property>
+				<property name="RedeliveryPolicyMap" ref="redeliveryPolicyMap" />
+			</bean>
+		</property>
+		<property name="maxConnections" value="300"></property>
+	</bean>
+
+	<!-- spring jms 模版 -->
+	<bean id="modestJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="modestJmsFactory" />
+		<!--订阅 发布模式 -->
+		<property name="pubSubDomain" value="true" />
+	</bean>
+
+	<bean class="com.modest.jms.activemq.sender.QueueSender" id="queueSender">
+		<property name="jmsTemplate" ref="modestJmsTemplate" />
+	</bean>
+
+	<!-- 实际使用，简化版，只需继承此Bean -->
+	<bean id="baseJmsListener"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer"
+		abstract="true">
+		<property name="connectionFactory" ref="modestJmsFactory" />
+		<property name="sessionTransacted" value="true" />
+		<property name="subscriptionDurable" value="true" />
+	</bean>
+
+	<!-- ========================================================================================= -->
+	<!-- 复制以下部份到你的工程,修改topic和listener(clientId和durableSubscriptionName保持唯一) -->
+	<!-- ========================================================================================= -->
+	<!-- 示例topic -->
+	<bean id="demoTopic" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg value="demoTopic" />
+	</bean>
+	<!-- 示例listener:你写的listener需要继承:com.modest.jms.activemq.listener.BaseMessageListener -->
+	<bean id="demoJmsListener" class="com.modest.jms.activemq.listener.DemoJmsListener" />
+	<!-- 示例listener配置:替换所有demoTopic为你的topic -->
+	<bean id="demoListenerContainer" parent="baseJmsListener">
+		<property name="destination" ref="demoTopic" />
+		<property name="messageListener" ref="demoJmsListener" />
+		<property name="clientId"
+			value="${jms.connection.clientId}_demoTopic_Listener" />
+		<property name="durableSubscriptionName"
+			value="${jms.connection.clientId}_demoTopic_subscriptionName" />
+	</bean>
+
+</beans>

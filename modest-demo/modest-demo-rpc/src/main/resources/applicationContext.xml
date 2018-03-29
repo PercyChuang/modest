@@ -32,5 +32,21 @@
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
- 
+ 	
+ 	
+ 	<bean id="demoTopic1" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg value="demoTopic1" />
+	</bean>
+	<!-- 示例listener:你写的listener需要继承:com.modest.jms.activemq.listener.BaseMessageListener -->
+	<bean id="myJmsListener" class="com.demo.jms.MyJmsListener" />
+	<!-- 示例listener配置:替换所有demoTopic为你的topic -->
+	<bean id="demoListenerContainer" parent="baseJmsListener">
+		<property name="destination" ref="demoTopic1" />
+		<property name="messageListener" ref="myJmsListener" />
+		<property name="clientId"
+			value="${jms.connection.clientId}_demoTopic1_Listener" />
+		<property name="durableSubscriptionName"
+			value="${jms.connection.clientId}_demoTopic1_subscriptionName" />
+	</bean>
+	
 </beans>
