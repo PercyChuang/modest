@@ -1115,4 +1115,25 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<scm>
+        <connection>scm:https://github.com/PercyChuang/modest</connection>
+        <developerConnection>scm:https://github.com/PercyChuang/modest</developerConnection>
+        <url>https://github.com/PercyChuang/modest</url>
+    </scm>
+    
+    <mailingLists>
+        <mailingList>
+            <name>percychuang</name>
+            <post>zpxem@foxmail.com</post>
+        </mailingList>
+    </mailingLists>
+    
+    <developers>
+        <developer>
+            <id>ZhuangPuXiang</id>
+            <name>ZhuangPuXiang</name>
+            <email>zpxem@foxmail.com</email>
+            <timezone>8</timezone>
+        </developer>
+   </developers>
 </project>
