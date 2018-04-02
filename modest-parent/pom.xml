@@ -5,10 +5,11 @@
 	<!-- ================================================= -->
 	<!-- POM信息 -->
 	<!-- ================================================= -->
-	<groupId>com.modest</groupId>
+	<groupId>com.github.percychuang</groupId>
 	<artifactId>modest-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<name>${project.artifactId}</name>
 
 	<!-- ================================================= -->
 	<!-- 框架组件聚合 -->
@@ -20,8 +21,6 @@
 		<module>modest-mybatis</module>
 		<module>modest-starter</module>
 		<module>modest-ass</module>
-		<module>../modest-modules/modest-file</module>
-		<module>../modest-modules/modest-rpc</module>
 	</modules>
 
 	<!-- ================================================= -->
@@ -1073,67 +1072,84 @@
 		</plugins>
 	</reporting>
 
-	<!-- ================================================= -->
+	<!-- =====================repositories================= -->
 	<!--服务器配置，默认使用自已maven.setting里的配置 -->
 	<!--服务器配置，如果要使用这里的配置可把ci改为dev -->
 	<!-- ================================================= -->
-	<profiles>
-		<profile>
-			<id>ci</id>
-			<!-- ================================================= -->
-			<!-- 获取依懒时的仓库配置 -->
-			<!-- ================================================= -->
-			<repositories>
-				<repository>
-					<id>aliyu-nexus</id>
-					<name>Team Nexus Repository</name>
-					<url>http://maven.aliyun.com/nexus/content/groups/public</url>
-				</repository>
-			</repositories>
-			<pluginRepositories>
-				<pluginRepository>
-					<id>aliyu-plugin</id>
-					<name>Team Nexus Repository</name>
-					<url>http://maven.aliyun.com/nexus/content/groups/public</url>
-				</pluginRepository>
-			</pluginRepositories>
-		</profile>
-	</profiles>
-	<!-- ================================================= -->
-	<!-- 发布项目时的私服配置 插件管理 快照id在私服必须存在 -->
-	<!-- ================================================= -->
-	<distributionManagement>
+	<repositories>
 		<repository>
-			<id>releases</id>
-			<name>Nexus Release Repository</name>
-			<url>http://192.168.2.110:8081/nexus/content/repositories/releases</url>
+			<id>alfresco-maven-repo</id>
+			<url>https://maven.alfresco.com/nexus/content/groups/public/</url>
 		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Nexus Release Repository</name>
-			<url>http://192.168.2.110:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
+		<repository>
+			<id>aliyu-nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>java-net</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>terracotta-releases</id>
+			<url>http://terracotta.org/download/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<url>https://github.com/PercyChuang/modest</url>
+	
+	<description>Java Modest</description>
+	
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<scm>
-        <connection>scm:https://github.com/PercyChuang/modest</connection>
-        <developerConnection>scm:https://github.com/PercyChuang/modest</developerConnection>
-        <url>https://github.com/PercyChuang/modest</url>
-    </scm>
-    
-    <mailingLists>
-        <mailingList>
-            <name>percychuang</name>
-            <post>zpxem@foxmail.com</post>
-        </mailingList>
-    </mailingLists>
-    
-    <developers>
-        <developer>
-            <id>ZhuangPuXiang</id>
-            <name>ZhuangPuXiang</name>
-            <email>zpxem@foxmail.com</email>
-            <timezone>8</timezone>
-        </developer>
-   </developers>
+		<connection>scm:https://github.com/PercyChuang/modest</connection>
+		<developerConnection>scm:https://github.com/PercyChuang/modest</developerConnection>
+		<url>https://github.com/PercyChuang/modest</url>
+	</scm>
+
+	<mailingLists>
+		<mailingList>
+			<name>percychuang</name>
+			<post>zpxem@foxmail.com</post>
+		</mailingList>
+	</mailingLists>
+
+	<developers>
+		<developer>
+			<id>ZhuangPuXiang</id>
+			<name>ZhuangPuXiang</name>
+			<email>zpxem@foxmail.com</email>
+			<timezone>8</timezone>
+		</developer>
+	</developers>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype-nexus-releases</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+	</distributionManagement>
+
 </project>
