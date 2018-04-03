@@ -2,60 +2,61 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.modest</groupId>
+		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
-
+	
+	<groupId>com.lmw</groupId>
 	<artifactId>modest-demo-web</artifactId>
 	<packaging>war</packaging>
 	<name>modest-demo-web</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-starter</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
 		<!-- 以下是可选组件，上面是必须 -->
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-rpc</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-file</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-util</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-redis</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-jms</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		
 		<!-- 其他 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.lmw</groupId>
 			<artifactId>sc_jtap</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -100,6 +101,11 @@
 
 	<build>
 		<finalName>modest-demo-web</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>

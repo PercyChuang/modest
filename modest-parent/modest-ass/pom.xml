@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
 	<modelVersion>4.0.0</modelVersion>
@@ -23,7 +23,7 @@
 	<!-- ================================================= -->
 	<dependencies>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-starter</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
@@ -108,7 +108,7 @@
 					<version>2.5</version>
 					<dependencies>
 						<dependency>
-							<groupId>com.modest</groupId>
+							<groupId>${modest.group}</groupId>
 							<artifactId>modest-starter</artifactId>
 							<version>${modest.version}</version>
 						</dependency>

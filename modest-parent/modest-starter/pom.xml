@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -11,25 +11,36 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-core</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-log</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-datasource</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-mybatis</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

@@ -7,7 +7,7 @@
 	<!-- ================================================= -->
 	<groupId>com.github.percychuang</groupId>
 	<artifactId>modest-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 
@@ -27,66 +27,42 @@
 	<!-- 版本配置 -->
 	<!-- ================================================= -->
 	<properties>
+
 		<modest.version>0.0.1-SNAPSHOT</modest.version>
+		<modest.group>com.github.percychuang</modest.group>
+
 		<java.version>1.7</java.version>
-		<filters.base.path.test>src/test/filters</filters.base.path.test>
-		<filters.base.path.main>src/main/filters</filters.base.path.main>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.locale>zh_CN</project.build.locale>
 		<project.build.encoding>UTF-8</project.build.encoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<spring.groupId>org.springframework</spring.groupId>
-		<spring.version>4.3.13.RELEASE</spring.version>
-		<spring.batch.groupId>org.springframework.batch</spring.batch.groupId>
-		<spring.batch.version>3.0.1.RELEASE</spring.batch.version>
-		<poi.groupId>org.apache.poi</poi.groupId>
-		<poi.version>3.14</poi.version>
-		<jxls.version>1.0.2</jxls.version>
-		<slf4j.groupId>org.slf4j</slf4j.groupId>
-		<slf4j.version>1.7.24</slf4j.version>
-		<logback.groupId>ch.qos.logback</logback.groupId>
-		<logback.version>1.2.2</logback.version>
-		<aspectj.groupId>org.aspectj</aspectj.groupId>
-		<aspectj.version>1.8.1</aspectj.version>
-		<thymeleaf.version>2.1.3.RELEASE</thymeleaf.version>
-		<freemarker.version>2.3.20</freemarker.version>
-		<velocity.version>1.5</velocity.version>
-		<apache.velocity.version>1.7</apache.velocity.version>
-		<taglibs.standard.version>1.1.2</taglibs.standard.version>
-		<jstl.version>1.2</jstl.version>
-		<tiles.jsp.version>3.0.1</tiles.jsp.version>
-		<servlet.api.version>4.0.0</servlet.api.version>
-		<servlet.jsp.api.version>2.2.1</servlet.jsp.api.version>
-		<guava.version>14.0</guava.version>
-		<joda.time.version>2.2</joda.time.version>
-		<bouncycastle.version>1.50</bouncycastle.version>
-		<shiro.version>1.2.2</shiro.version>
-		<cglib-nodep.version>3.1</cglib-nodep.version>
-		<spring-data-redis.version>1.3.1.RELEASE</spring-data-redis.version>
-		<jedis.version>2.9.0</jedis.version>
-		<quartz.version>2.2.1</quartz.version>
-		<mybatis.spring.version>1.2.2</mybatis.spring.version>
-		<mybatis.version>3.2.8</mybatis.version>
-		<spring-data-mongodb.version>1.5.1.RELEASE</spring-data-mongodb.version>
-		<mongo-java-driver.version>2.12.4</mongo-java-driver.version>
-		<memcached.version>3.5.0</memcached.version>
-		<activemq.version>5.9.1</activemq.version>
-		<xbean-spring.version>4.3</xbean-spring.version>
-		<hsqldb.version>2.3.2</hsqldb.version>
-		<ehcache.version>2.5.2</ehcache.version>
-		<gson.version>2.3</gson.version>
-		<fastjson.version>1.1.41</fastjson.version>
-		<log4j.version>1.2.17</log4j.version>
+
+		<filters.base.path.test>src/test/filters</filters.base.path.test>
+		<filters.base.path.main>src/main/filters</filters.base.path.main>
+
+		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+		<maven-plugin-plugin.version>3.4</maven-plugin-plugin.version>
+		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+		<maven-dependency-plugin.version>2.8</maven-dependency-plugin.version>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+		<maven-scm-plugin.version>1.9.2</maven-scm-plugin.version>
+		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+		<maven-site-plugin.version>3.4</maven-site-plugin.version>
+		<maven.version.range>[3.0.4,)</maven.version.range>
+		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+		<maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<os-maven-plugin.version>1.5.0.Final</os-maven-plugin.version>
+		<surefire-report-maven-plugin.version>2.0-beta-1</surefire-report-maven-plugin.version>
+
+		<commons-pool2.version>2.5.0</commons-pool2.version>
 		<commons-logging.version>1.1.1</commons-logging.version>
 		<commons-fileupload.version>1.2.2</commons-fileupload.version>
-		<fjackson.version>2.9.0</fjackson.version>
-		<c3p0.version>0.9.5-pre9</c3p0.version>
-		<mchange-commons-java.version>0.2.7</mchange-commons-java.version>
-		<bonecp.version>0.7.1.RELEASE</bonecp.version>
-		<mysql-connector-java.version>5.1.36</mysql-connector-java.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<commons-lang.version>2.6</commons-lang.version>
-		<dom4j.version>1.6.1</dom4j.version>
-		<xpp3.version>1.1.4c</xpp3.version>
-		<ojdbc6.version>11.2.0.1.0</ojdbc6.version>
 		<commons-pool.version>1.6</commons-pool.version>
 		<commons-collections.version>3.2.1</commons-collections.version>
 		<commons-io.version>2.4</commons-io.version>
@@ -94,55 +70,99 @@
 		<commons-codec.version>1.9</commons-codec.version>
 		<commons-net.version>3.1</commons-net.version>
 		<commons-digester.version>1.8</commons-digester.version>
-		<hibernate-validator.version>5.0.0.Final</hibernate-validator.version>
-		<validation-api.version>1.1.0.Final</validation-api.version>
 		<jaxb-api.version>2.2.9</jaxb-api.version>
 		<jaxb-impl.version>2.2.7</jaxb-impl.version>
 		<javassist.version>3.20.0-GA</javassist.version>
-		<netty-all.version>4.0.21.Final</netty-all.version>
+
+
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j.groupId>org.slf4j</slf4j.groupId>
+		<slf4j.version>1.7.24</slf4j.version>
+		<logback.groupId>ch.qos.logback</logback.groupId>
+		<logback.version>1.2.2</logback.version>
+
+		<spring.groupId>org.springframework</spring.groupId>
+		<spring.version>4.3.13.RELEASE</spring.version>
+		<spring.batch.groupId>org.springframework.batch</spring.batch.groupId>
+		<spring.batch.version>3.0.1.RELEASE</spring.batch.version>
+		<spring-data-redis.version>1.3.1.RELEASE</spring-data-redis.version>
+		<spring-data-mongodb.version>1.5.1.RELEASE</spring-data-mongodb.version>
+		<spring-data-couchbase.version>1.2.1.RELEASE</spring-data-couchbase.version>
+		<xbean-spring.version>4.3</xbean-spring.version>
+		<aspectj.groupId>org.aspectj</aspectj.groupId>
+		<aspectj.version>1.8.1</aspectj.version>
+		<servlet.api.version>3.1.0</servlet.api.version>
+		<servlet.jsp.api.version>2.2.1</servlet.jsp.api.version>
+		<cglib-nodep.version>3.1</cglib-nodep.version>
+		<taglibs.standard.version>1.1.2</taglibs.standard.version>
+		<junit.version>4.12</junit.version>
+		<jstl.version>1.2</jstl.version>
+		<tiles.jsp.version>3.0.1</tiles.jsp.version>
+		<testng.version>6.8.8</testng.version>
+		<dom4j.version>1.6.1</dom4j.version>
 		<httpclient.version>4.3.6</httpclient.version>
 		<httpcore.version>4.3.3</httpcore.version>
 		<httpmime.version>4.3.6</httpmime.version>
 		<httpasyncclient.version>4.0.2</httpasyncclient.version>
-		<xstream.version>1.4.7</xstream.version>
-		<bsf-api.version>3.1</bsf-api.version>
+
+		<mybatis.spring.version>1.2.2</mybatis.spring.version>
+		<druid.version>1.0.31</druid.version>
+		<mybatis.version>3.2.8</mybatis.version>
+		<c3p0.version>0.9.5-pre9</c3p0.version>
+		<logback-redis-appender.version>1.1.5</logback-redis-appender.version>
+		<bonecp.version>0.7.1.RELEASE</bonecp.version>
+		<mysql-connector-java.version>5.1.36</mysql-connector-java.version>
+		<ojdbc6.version>11.2.0.1.0</ojdbc6.version>
+		<hsqldb.version>2.3.2</hsqldb.version>
+		<hibernate-validator.version>5.0.0.Final</hibernate-validator.version>
+		<validation-api.version>1.1.0.Final</validation-api.version>
+
+		<netty-all.version>4.0.21.Final</netty-all.version>
+		<jedis.version>2.9.0</jedis.version>
+		<activemq.version>5.9.1</activemq.version>
+		<mongo-java-driver.version>2.12.4</mongo-java-driver.version>
+		<shiro.version>1.2.2</shiro.version>
+		<alibaba.dubbo.version>2.5.3</alibaba.dubbo.version>
+		<geronimo-jms.version>1.1.1</geronimo-jms.version>
+		<memcached.version>3.5.0</memcached.version>
+		<ehcache.version>2.5.2</ehcache.version>
+		<quartz.version>2.2.1</quartz.version>
+		<freemarker.version>2.3.20</freemarker.version>
+		<velocity.version>1.5</velocity.version>
+		<apache.velocity.version>1.7</apache.velocity.version>
+		<poi.groupId>org.apache.poi</poi.groupId>
+		<poi.version>3.14</poi.version>
+		<jxls.version>1.0.2</jxls.version>
+		<thymeleaf.version>2.1.3.RELEASE</thymeleaf.version>
+		<bouncycastle.version>1.50</bouncycastle.version>
 		<jfreechart.version>1.0.14</jfreechart.version>
 		<hessian.version>4.0.7</hessian.version>
-		<junit.version>4.12</junit.version>
-		<testng.version>6.8.8</testng.version>
+		<zookeeper.version>3.4.6</zookeeper.version>
+		<zkclient_version>0.1</zkclient_version>
+		<jetty.version>6.1.26</jetty.version>
+		<surefire-testng.version>2.11</surefire-testng.version>
+
+		<tomcat_embed_version>8.0.11</tomcat_embed_version>
+		<jboss_resteasy_version>3.0.7.Final</jboss_resteasy_version>
+		<guava.version>14.0</guava.version>
+		<joda.time.version>2.2</joda.time.version>
+		<gson.version>2.3</gson.version>
+		<fastjson.version>1.1.41</fastjson.version>
+		<fjackson.version>2.9.0</fjackson.version>
+		<xpp3.version>1.1.4c</xpp3.version>
+		<mchange-commons-java.version>0.2.7</mchange-commons-java.version>
+		<xstream.version>1.4.7</xstream.version>
+		<bsf-api.version>3.1</bsf-api.version>
 		<mockito-all.version>1.10.17</mockito-all.version>
 		<hamcrest.version>1.3</hamcrest.version>
 		<grizzly-core.version>2.2.18</grizzly-core.version>
-		<zookeeper.version>3.4.6</zookeeper.version>
-		<jetty.version>6.1.26</jetty.version>
-		<spring-data-couchbase.version>1.2.1.RELEASE</spring-data-couchbase.version>
 		<esapi.version>2.1.0</esapi.version>
-		<zkclient_version>0.1</zkclient_version>
-		<tomcat_embed_version>8.0.11</tomcat_embed_version>
-		<jboss_resteasy_version>3.0.7.Final</jboss_resteasy_version>
 		<assertj.version>1.7.0</assertj.version>
 		<mockito.version>1.10.8</mockito.version>
 		<nosqlunit.version>0.8.0</nosqlunit.version>
-		<maven-plugin-plugin.version>3.1</maven-plugin-plugin.version>
-		<maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
-		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
-		<maven-dependency-plugin.version>2.8</maven-dependency-plugin.version>
-		<maven-jar-plugin.versioin>2.5</maven-jar-plugin.versioin>
-		<maven-scm-plugin.version>1.9.2</maven-scm-plugin.version>
-		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
-		<cobertura-maven-plugin.version>2.6</cobertura-maven-plugin.version>
-		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
-		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-		<druid.version>1.0.31</druid.version>
 		<disconf.version>2.6.36</disconf.version>
 		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
-		<surefire-report-maven-plugin.version>2.0-beta-1</surefire-report-maven-plugin.version>
-		<surefire-testng.version>2.11</surefire-testng.version>
-		<logback-redis-appender.version>1.1.5</logback-redis-appender.version>
-		<alibaba.dubbo.version>2.5.3</alibaba.dubbo.version>
-		<geronimo-jms.version>1.1.1</geronimo-jms.version>
-		<commons-pool2.version>2.5.0</commons-pool2.version>
+
 	</properties>
 
 	<!-- ================================================= -->
@@ -847,6 +867,13 @@
 	<!-- 绑定配置 插件及插件管理 -->
 	<!-- ================================================= -->
 	<build>
+		<extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>${os-maven-plugin.version}</version>
+			</extension>
+		</extensions>
 		<defaultGoal>package</defaultGoal>
 		<resources>
 			<resource>
@@ -860,117 +887,28 @@
 				<filtering>true</filtering>
 			</testResource>
 		</testResources>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-plugin-plugin</artifactId>
-				<version>${maven-plugin-plugin.version}</version>
-				<configuration>
-					<encoding>${project.build.encoding}</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>${project.build.encoding}</encoding>
-					<showDeprecations>true</showDeprecations>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>${maven-resources-plugin.version}</version>
-				<configuration>
-					<encoding>${project.build.encoding}</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>${maven-dependency-plugin.version}</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar-plugin.versioin}</version>
-				<configuration>
-					<excludes>
-						<exclude>**/logback-test.xml</exclude>
-						<exclude>**/*-filter.properties</exclude>
-					</excludes>
-					<archive>
-						<manifest>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-							<useUniqueVersions>false</useUniqueVersions>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-plugin</artifactId>
-				<version>${maven-scm-plugin.version}</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven-surefire-plugin.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-testng</artifactId>
-						<version>${surefire-testng.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<argLine>-Xmx512M -Dfile.encoding=UTF-8</argLine>
-					<failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
-					<failIfNoTests>false</failIfNoTests>
-					<testFailureIgnore>true</testFailureIgnore>
-					<verbose>2</verbose>
-					<forkMode>once</forkMode>
-					<threadCount>1</threadCount>
-					<preserve-order>true</preserve-order>
-				</configuration>
-			</plugin>
-		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>cobertura-maven-plugin</artifactId>
-					<version>${cobertura-maven-plugin.version}</version>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<testSource>${java.version}</testSource>
+						<testTarget>${java.version}</testTarget>
+						<encoding>${project.build.encoding}</encoding>
+						<showDeprecations>true</showDeprecations>
+					</configuration>
+					<version>${maven-compiler-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
 					<configuration>
 						<encoding>${project.build.encoding}</encoding>
-						<formats>
-							<format>xml</format>
-						</formats>
-						<parallel>classes</parallel>
-						<testFailureIgnore>true</testFailureIgnore>
-						<verbose>2</verbose>
-						<forkMode>once</forkMode>
-						<threadCount>1</threadCount>
-						<preserve-order>true</preserve-order>
 					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>commons-collections</groupId>
-							<artifactId>commons-collections</artifactId>
-						</dependency>
-					</dependencies>
-					<executions>
-						<execution>
-							<goals>
-								<goal>clean</goal>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
@@ -990,7 +928,76 @@
 					</executions>
 				</plugin>
 				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${maven-assembly-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/logback-test.xml</exclude>
+							<exclude>**/*-filter.properties</exclude>
+						</excludes>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+								<useUniqueVersions>false</useUniqueVersions>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.surefire</groupId>
+							<artifactId>surefire-testng</artifactId>
+							<version>${surefire-testng.version}</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<argLine>-Xmx1024m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8</argLine>
+						<failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
+						<failIfNoTests>false</failIfNoTests>
+						<testFailureIgnore>true</testFailureIgnore>
+						<verbose>2</verbose>
+						<forkMode>once</forkMode>
+						<threadCount>1</threadCount>
+						<preserve-order>true</preserve-order>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${maven-site-plugin.version}</version>
+					<configuration>
+						<locales>${project.build.locale}</locales>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>${maven-plugin-plugin.version}</version>
+					<configuration>
+						<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+						<encoding>${project.build.encoding}</encoding>
+					</configuration>
+					<executions>
+						<execution>
+							<id>default-descriptor</id>
+							<phase>process-classes</phase>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
 					<configuration>
 						<additionalJOption>-J-Dfile.encoding=UTF-8</additionalJOption>
 						<encoding>UTF-8</encoding>
@@ -1022,8 +1029,57 @@
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${maven-deploy-plugin.version}</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven-dependency-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-plugin</artifactId>
+					<version>${maven-scm-plugin.version}</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 
 	<!-- ================================================= -->
@@ -1109,9 +1165,7 @@
 	</repositories>
 
 	<url>https://github.com/PercyChuang/modest</url>
-	
 	<description>Java Modest</description>
-	
 	<licenses>
 		<license>
 			<name>Apache License 2.0</name>
@@ -1119,20 +1173,17 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
 	<scm>
 		<connection>scm:https://github.com/PercyChuang/modest</connection>
 		<developerConnection>scm:https://github.com/PercyChuang/modest</developerConnection>
 		<url>https://github.com/PercyChuang/modest</url>
 	</scm>
-
 	<mailingLists>
 		<mailingList>
 			<name>percychuang</name>
 			<post>zpxem@foxmail.com</post>
 		</mailingList>
 	</mailingLists>
-
 	<developers>
 		<developer>
 			<id>ZhuangPuXiang</id>
@@ -1141,15 +1192,51 @@
 			<timezone>8</timezone>
 		</developer>
 	</developers>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>sonatype-nexus-releases</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-		</repository>
-	</distributionManagement>
-
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<distributionManagement>
+				<repository>
+					<id>releases</id>
+					<name>Nexus Release Repository</name>
+					<url>http://192.168.2.110:8081/nexus/content/repositories/releases</url>
+				</repository>
+				<snapshotRepository>
+					<id>snapshots</id>
+					<name>Nexus Release Repository</name>
+					<url>http://192.168.2.110:8081/nexus/content/repositories/snapshots/</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${maven-gpg-plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<distributionManagement>
+				<snapshotRepository>
+					<id>sonatype-nexus-snapshots</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+				<repository>
+					<id>sonatype-nexus-releases</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 </project>

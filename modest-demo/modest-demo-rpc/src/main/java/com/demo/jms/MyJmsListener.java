@@ -13,7 +13,7 @@ public class MyJmsListener extends  BaseMessageListener {
 	
 	@Override
 	public void doExecute(String message) throws Exception {
-		logger.info("MyJmsListener reciven message:{}"+message);
+		logger.info("MyJmsListener reciven message:{}",message);
 	}
 
 	@Override

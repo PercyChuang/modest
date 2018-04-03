@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-		<groupId>com.modest</groupId>
+		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-ass</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath></relativePath>
@@ -9,44 +9,42 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>modest-demo-rpc</artifactId>
-
 	<dependencies>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-rpc</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-file</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-redis</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-jms</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
 
 		<!-- 其他 -->
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>com.lmw</groupId>
 			<artifactId>sc_jtap</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 		<!-- 测试 -->
 		<dependency>
 			<groupId>${spring.groupId}</groupId>

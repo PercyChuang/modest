@@ -53,8 +53,8 @@
     </root>
 
     <logger name="org.springframework" additivity="true" level="INFO" />
-    <logger name="org.mybatis.spring" additivity="true" level="ERROR" />
-    <logger name="java.sql" additivity="FALSE" level="DEBUG" />
-    <logger name="com.mchange.v2" additivity="true" level="ERROR" />
+    <logger name="org.mybatis.spring" additivity="true" level="INFO" />
+    <logger name="java.sql" additivity="FALSE" level="INFO" />
+    <logger name="com.mchange.v2" additivity="true" level="INFO" />
     
 </configuration>

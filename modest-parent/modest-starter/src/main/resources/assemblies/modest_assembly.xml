@@ -16,7 +16,7 @@
         
         <dependencySet>
             <includes>
-                <include>com.modest:modest-starter</include>
+                <include>com.github.percychuang:modest-starter</include>
             </includes>
             <outputDirectory>/bin</outputDirectory>
             <unpack>true</unpack>

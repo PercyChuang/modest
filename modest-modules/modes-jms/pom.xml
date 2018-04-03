@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.modest</groupId>
+		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath></relativePath>
@@ -11,7 +11,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.modest</groupId>
+			<groupId>${modest.group}</groupId>
 			<artifactId>modest-core</artifactId>
 			<version>${modest.version}</version>
 		</dependency>
@@ -46,6 +46,9 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
