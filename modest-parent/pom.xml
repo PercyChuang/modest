@@ -162,7 +162,7 @@
 		<nosqlunit.version>0.8.0</nosqlunit.version>
 		<disconf.version>2.6.36</disconf.version>
 		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
-
+		
 	</properties>
 
 	<!-- ================================================= -->
@@ -1186,32 +1186,28 @@
 	</mailingLists>
 	<developers>
 		<developer>
-			<id>ZhuangPuXiang</id>
-			<name>ZhuangPuXiang</name>
+			<id>percychuang</id>
+			<name>percychuang</name>
 			<email>zpxem@foxmail.com</email>
 			<timezone>8</timezone>
 		</developer>
 	</developers>
 	<profiles>
 		<profile>
-			<id>dev</id>
-			<distributionManagement>
-				<repository>
-					<id>releases</id>
-					<name>Nexus Release Repository</name>
-					<url>http://192.168.2.110:8081/nexus/content/repositories/releases</url>
-				</repository>
-				<snapshotRepository>
-					<id>snapshots</id>
-					<name>Nexus Release Repository</name>
-					<url>http://192.168.2.110:8081/nexus/content/repositories/snapshots/</url>
-				</snapshotRepository>
-			</distributionManagement>
-		</profile>
-		<profile>
-			<id>release</id>
+			<id>oos</id>
 			<build>
 				<plugins>
+					<!-- Source -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+					</plugin>
+					<!-- Javadoc -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+					</plugin>
+					<!-- GPG -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
