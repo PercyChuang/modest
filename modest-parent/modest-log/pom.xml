@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
-	
+
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>modest-log</artifactId>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>${slf4j.groupId}</groupId>
@@ -40,14 +40,4 @@
 			<artifactId>commons-logging</artifactId>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 </project>

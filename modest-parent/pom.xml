@@ -2,18 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<!-- ================================================= -->
-	<!-- POM信息 -->
-	<!-- ================================================= -->
 	<groupId>com.github.percychuang</groupId>
 	<artifactId>modest-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 
-	<!-- ================================================= -->
-	<!-- 框架组件聚合 -->
-	<!-- ================================================= -->
 	<modules>
 		<module>modest-log</module>
 		<module>modest-core</module>
@@ -23,12 +17,9 @@
 		<module>modest-ass</module>
 	</modules>
 
-	<!-- ================================================= -->
-	<!-- 版本配置 -->
-	<!-- ================================================= -->
 	<properties>
 
-		<modest.version>0.0.1-SNAPSHOT</modest.version>
+		<modest.version>0.0.1</modest.version>
 		<modest.group>com.github.percychuang</modest.group>
 
 		<java.version>1.7</java.version>
@@ -50,13 +41,14 @@
 		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
 		<maven-site-plugin.version>3.4</maven-site-plugin.version>
 		<maven.version.range>[3.0.4,)</maven.version.range>
-		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
 		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
 		<maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 		<os-maven-plugin.version>1.5.0.Final</os-maven-plugin.version>
 		<surefire-report-maven-plugin.version>2.0-beta-1</surefire-report-maven-plugin.version>
+		<build-helper-maven-plugin.version>1.9.1</build-helper-maven-plugin.version>
 
 		<commons-pool2.version>2.5.0</commons-pool2.version>
 		<commons-logging.version>1.1.1</commons-logging.version>
@@ -162,12 +154,9 @@
 		<nosqlunit.version>0.8.0</nosqlunit.version>
 		<disconf.version>2.6.36</disconf.version>
 		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
-		
+
 	</properties>
 
-	<!-- ================================================= -->
-	<!-- 依懒包管理 -->
-	<!-- ================================================= -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -863,9 +852,49 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<!-- ================================================= -->
-	<!-- 绑定配置 插件及插件管理 -->
-	<!-- ================================================= -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>${maven-deploy-plugin.version}</version>
+				<configuration>
+					<updateReleaseInfo>true</updateReleaseInfo>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
+					<failIfNoTests>false</failIfNoTests>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>surefire-report-maven-plugin</artifactId>
+				<version>${surefire-report-maven-plugin.version}</version>
+				<inherited>true</inherited>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>${taglist-maven-plugin.version}</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<tags>
+						<tag>TODO</tag>
+						<tag>@todo</tag>
+						<tag>FIXME</tag>
+						<tag>XXX</tag>
+					</tags>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+
 	<build>
 		<extensions>
 			<extension>
@@ -890,6 +919,11 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${build-helper-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
@@ -913,11 +947,6 @@
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
 					<version>${maven-source-plugin.version}</version>
-					<configuration>
-						<excludeResources>**/logback-test.xml</excludeResources>
-						<attach>true</attach>
-						<includePom>true</includePom>
-					</configuration>
 					<executions>
 						<execution>
 							<id>attach-sources</id>
@@ -1012,7 +1041,7 @@
 					<executions>
 						<execution>
 							<id>attach-javadocs</id>
-							<phase>deploy</phase>
+							<phase>package</phase>
 							<goals>
 								<goal>jar</goal>
 							</goals>
@@ -1038,6 +1067,20 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-scm-plugin</artifactId>
 					<version>${maven-scm-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${maven-gpg-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -1082,56 +1125,6 @@
 		</plugins>
 	</build>
 
-	<!-- ================================================= -->
-	<!-- 报告配置 插件管理 -->
-	<!-- ================================================= -->
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>${maven-deploy-plugin.version}</version>
-				<configuration>
-					<updateReleaseInfo>true</updateReleaseInfo>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven-surefire-plugin.version}</version>
-				<configuration>
-					<failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
-					<failIfNoTests>false</failIfNoTests>
-					<testFailureIgnore>true</testFailureIgnore>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>surefire-report-maven-plugin</artifactId>
-				<version>${surefire-report-maven-plugin.version}</version>
-				<inherited>true</inherited>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>taglist-maven-plugin</artifactId>
-				<version>${taglist-maven-plugin.version}</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<tags>
-						<tag>TODO</tag>
-						<tag>@todo</tag>
-						<tag>FIXME</tag>
-						<tag>XXX</tag>
-					</tags>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-
-	<!-- =====================repositories================= -->
-	<!--服务器配置，默认使用自已maven.setting里的配置 -->
-	<!--服务器配置，如果要使用这里的配置可把ci改为dev -->
-	<!-- ================================================= -->
 	<repositories>
 		<repository>
 			<id>alfresco-maven-repo</id>
@@ -1173,6 +1166,10 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+	<issueManagement>
+		<system>GitHub Issue Tracker</system>
+		<url>https://github.com/PercyChuang/modest/issues</url>
+	</issueManagement>
 	<scm>
 		<connection>scm:https://github.com/PercyChuang/modest</connection>
 		<developerConnection>scm:https://github.com/PercyChuang/modest</developerConnection>
@@ -1192,34 +1189,15 @@
 			<timezone>8</timezone>
 		</developer>
 	</developers>
+
 	<profiles>
 		<profile>
 			<id>oos</id>
 			<build>
 				<plugins>
-					<!-- Source -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-					</plugin>
-					<!-- Javadoc -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-					</plugin>
-					<!-- GPG -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
-						<version>${maven-gpg-plugin.version}</version>
-						<executions>
-							<execution>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
 					</plugin>
 				</plugins>
 			</build>
@@ -1235,4 +1213,6 @@
 			</distributionManagement>
 		</profile>
 	</profiles>
+
+
 </project>

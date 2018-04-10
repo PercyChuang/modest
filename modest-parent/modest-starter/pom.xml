@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -31,16 +31,4 @@
 			<version>${modest.version}</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>

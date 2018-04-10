@@ -23,6 +23,7 @@ public class JedisPoolTest {
 		Jedis jedis = null;
 		try {
 			jedis = pool.getResource();
+			jedis.auth("lmw123456");
 			/// ... do stuff here ... for example
 			jedis.set("foo", "bar");
 			String foobar = jedis.get("foo");
