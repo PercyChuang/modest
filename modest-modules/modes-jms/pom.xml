@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.percychuang</groupId>
 		<artifactId>modest-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 		<relativePath></relativePath>
 	</parent>
 	<artifactId>modest-jms</artifactId>
@@ -41,15 +41,4 @@
 			<version>5.7.0</version>
 		</dependency>
 	</dependencies>
-	
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 </project>
