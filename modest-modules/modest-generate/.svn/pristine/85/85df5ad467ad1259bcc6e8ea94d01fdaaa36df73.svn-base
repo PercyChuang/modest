@@ -1,7 +1,0 @@
-package cn.lmw.generate.model;
-
-
-public class SqlResultColumn extends Column{
-
-	
-}

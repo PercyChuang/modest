@@ -1,9 +1,0 @@
-package cn.lmw.generate.appender;
-
-import cn.lmw.generate.config.AppenderConfig;
-import cn.lmw.generate.model.FileVo;
-
-public interface BaseAppender {
-	
-	public abstract FileVo doInvoke(AppenderConfig appender);
-}
