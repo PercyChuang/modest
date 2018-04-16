@@ -1,0 +1,8 @@
+package cn.lmw.generate.db;
+
+import cn.lmw.generate.model.Table;
+
+public interface TableParse {
+	
+	public Table getTable(String tableName);
+}

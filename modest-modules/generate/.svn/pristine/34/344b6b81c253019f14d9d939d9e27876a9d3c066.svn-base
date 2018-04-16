@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.xn.lhlc.cfp.base.dao.ProductRepaymentLogDao">
+<parameterMap type="cn.xn.lhlc.cfp.base.entity.ProductRepaymentLog" id="ProductRepaymentLogParameterMap" />	
+<!-- Result Map-->
+<resultMap  type="cn.xn.lhlc.cfp.base.entity.ProductRepaymentLog" id="ProductRepaymentLogResultMap">
+	<result column="f_id" property="id" jdbcType="INTEGER"/>
+	<result column="f_repayment_id" property="repaymentId" jdbcType="VARCHAR"/>
+	<result column="f_invest_id" property="investId" jdbcType="VARCHAR"/>
+	<result column="f_user_id" property="userId" jdbcType="VARCHAR"/>
+	<result column="f_result_code" property="resultCode" jdbcType="INTEGER"/>
+	<result column="f_result_msg" property="resultMsg" jdbcType="VARCHAR"/>
+	<result column="f_create_time" property="createTime" jdbcType="TIMESTAMP"/>
+</resultMap>
+  <sql id="Base_Column_List">
+    <trim suffixOverrides=",">
+	    	f_id,
+	    	f_repayment_id,
+	    	f_invest_id,
+	    	f_user_id,
+	    	f_result_code,
+	    	f_result_msg,
+	    	f_create_time,
+    </trim>
+  </sql>  
+  
+   <sql id="Base_Column_List_T">
+    <trim suffixOverrides=",">
+	    	t.f_id,
+	    	t.f_repayment_id,
+	    	t.f_invest_id,
+	    	t.f_user_id,
+	    	t.f_result_code,
+	    	t.f_result_msg,
+	    	t.f_create_time,
+    </trim>
+  </sql> 
+  	
+  <select id="getByPrimaryKey"  resultMap="ProductRepaymentLogResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_product_repayment_log where  f_id = #{0}
+  </select>	
+
+  <delete id="deleteByPrimaryKey" >
+    delete from t_product_repayment_log
+	<where>
+		f_id = #{0}
+	</where>
+  </delete>
+  
+  
+  <insert id="add" parameterMap="ProductRepaymentLogParameterMap" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO t_product_repayment_log
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			 	<if test=" null != id ">
+					f_id,
+				</if>
+			 	<if test=" null != repaymentId and ''!= repaymentId  ">
+					f_repayment_id,
+				</if>
+			 	<if test=" null != investId and ''!= investId  ">
+					f_invest_id,
+				</if>
+			 	<if test=" null != userId and ''!= userId  ">
+					f_user_id,
+				</if>
+			 	<if test=" null != resultCode ">
+					f_result_code,
+				</if>
+			 	<if test=" null != resultMsg and ''!= resultMsg  ">
+					f_result_msg,
+				</if>
+			 	<if test=" null != createTime ">
+					f_create_time,
+				</if>
+		</trim>
+		<trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+			 	<if test=" null != id ">
+					 	#{id},
+				</if>
+			 	<if test=" null != repaymentId and ''!= repaymentId  ">
+					 	#{repaymentId},
+				</if>
+			 	<if test=" null != investId and ''!= investId  ">
+					 	#{investId},
+				</if>
+			 	<if test=" null != userId and ''!= userId  ">
+					 	#{userId},
+				</if>
+			 	<if test=" null != resultCode ">
+					 	#{resultCode},
+				</if>
+			 	<if test=" null != resultMsg and ''!= resultMsg  ">
+					 	#{resultMsg},
+				</if>
+			 	<if test=" null != createTime ">
+					 	#{createTime},
+				</if>
+		</trim>
+	</insert>
+  
+  
+  <update id="update" parameterMap="ProductRepaymentLogParameterMap">
+		UPDATE t_product_repayment_log
+		<set>
+			<trim suffixOverrides=",">
+					<if test=" null != repaymentId and ''!= repaymentId  ">
+						f_repayment_id = #{repaymentId},
+					</if>
+					<if test=" null != investId and ''!= investId  ">
+						f_invest_id = #{investId},
+					</if>
+					<if test=" null != userId and ''!= userId  ">
+						f_user_id = #{userId},
+					</if>
+					<if test=" null != resultCode ">
+						f_result_code = #{resultCode},
+					</if>
+					<if test=" null != resultMsg and ''!= resultMsg  ">
+						f_result_msg = #{resultMsg},
+					</if>
+					<if test=" null != createTime ">
+						f_create_time = #{createTime},
+					</if>
+			</trim>
+		</set>
+		<where>
+			 f_id = #{id}
+		</where>
+	</update>
+  
+  
+   <update id="updateWithEmpty" parameterMap="ProductRepaymentLogParameterMap">
+		UPDATE t_product_repayment_log
+		<set>
+			<trim suffixOverrides=",">
+						f_repayment_id = #{repaymentId},
+						f_invest_id = #{investId},
+						f_user_id = #{userId},
+						f_result_code = #{resultCode},
+						f_result_msg = #{resultMsg},
+						f_create_time = #{createTime},
+			</trim>
+		</set>
+		<where>
+			 f_id = #{id}
+		</where>
+	</update>
+
+  <insert id="addBatch" parameterType="java.util.List">
+	insert into t_product_repayment_log 
+	<trim prefix="(" suffix=")" >
+			<include refid="Base_Column_List" />
+	</trim>
+	VALUES
+	<foreach item="item" index="index" collection="list" separator=",">
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+				#{item.id,jdbcType=INTEGER},
+				#{item.repaymentId,jdbcType=VARCHAR},
+				#{item.investId,jdbcType=VARCHAR},
+				#{item.userId,jdbcType=VARCHAR},
+				#{item.resultCode,jdbcType=INTEGER},
+				#{item.resultMsg,jdbcType=VARCHAR},
+				#{item.createTime,jdbcType=TIMESTAMP},
+		</trim>
+	</foreach>
+</insert>
+
+ 
+<update id="updateBatch" parameterType="java.util.List">
+      <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update t_product_repayment_log
+            <set>
+              	<trim suffixOverrides=",">
+					   <if test="item.repaymentId!=null and ''!= item.repaymentId  ">
+					        f_repayment_id = #{item.repaymentId,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.investId!=null and ''!= item.investId  ">
+					        f_invest_id = #{item.investId,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.userId!=null and ''!= item.userId  ">
+					        f_user_id = #{item.userId,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.resultCode!=null ">
+					        f_result_code = #{item.resultCode,jdbcType=INTEGER},
+					   </if>
+					   <if test="item.resultMsg!=null and ''!= item.resultMsg  ">
+					        f_result_msg = #{item.resultMsg,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.createTime!=null ">
+					        f_create_time = #{item.createTime,jdbcType=TIMESTAMP},
+					   </if>
+			   </trim>
+            </set>
+             where f_id = #{item.id}
+     </foreach>
+</update>
+
+<update id="updateBatchWithEmpty" parameterType="java.util.List">
+      <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update t_product_repayment_log
+            <set>
+              	<trim suffixOverrides=",">
+					        f_repayment_id = #{item.repaymentId,jdbcType=VARCHAR},
+					        f_invest_id = #{item.investId,jdbcType=VARCHAR},
+					        f_user_id = #{item.userId,jdbcType=VARCHAR},
+					        f_result_code = #{item.resultCode,jdbcType=INTEGER},
+					        f_result_msg = #{item.resultMsg,jdbcType=VARCHAR},
+					        f_create_time = #{item.createTime,jdbcType=TIMESTAMP},
+			   </trim>
+            </set>
+             where f_id = #{item.id}
+     </foreach>
+</update>         
+
+<delete id="deleteBatch" parameterType="Object">
+	DELETE FROM t_product_repayment_log
+	<where>
+		<foreach item="item" index="index" collection="array"  open="(" separator="or" close=") ">
+			  f_id  = #{item}
+		</foreach>
+	</where>
+</delete>
+    
+ <sql id="Base_Condition">
+		   <if test=" null != id ">
+				AND	T.f_id = #{id}
+		</if>
+		   <if test=" null != repaymentId and ''!= repaymentId  ">
+				AND	T.f_repayment_id = #{repaymentId}
+		</if>
+		   <if test=" null != investId and ''!= investId  ">
+				AND	T.f_invest_id = #{investId}
+		</if>
+		   <if test=" null != userId and ''!= userId  ">
+				AND	T.f_user_id = #{userId}
+		</if>
+		   <if test=" null != resultCode ">
+				AND	T.f_result_code = #{resultCode}
+		</if>
+		   <if test=" null != resultMsg and ''!= resultMsg  ">
+				AND	T.f_result_msg = #{resultMsg}
+		</if>
+		   <if test=" null != createTime ">
+				AND	T.f_create_time = #{createTime}
+		</if>
+ </sql>    
+<select id="list" resultMap="ProductRepaymentLogResultMap"  >
+		SELECT <include refid="Base_Column_List" /> FROM t_product_repayment_log T WHERE 1=1
+		<include refid="Base_Condition" />
+</select>
+
+<select id="query" resultMap="ProductRepaymentLogResultMap"  >
+		SELECT <include refid="Base_Column_List" /> FROM t_product_repayment_log T WHERE 1=1
+		<include refid="Base_Condition" />
+</select>
+
+</mapper>

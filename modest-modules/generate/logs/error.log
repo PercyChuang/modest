@@ -1,0 +1,17 @@
+[ERROR] 2018-04-16 14:59:09,930 com.modest.generate.utils.FreemarkUtils - 
+java.lang.NullPointerException
+	at com.modest.generate.utils.FreemarkUtils.init(FreemarkUtils.java:30)
+	at com.modest.generate.GenerateFactory.codeGenerate(GenerateFactory.java:106)
+	at Run.main(Run.java:7)
+[ERROR] 2018-04-16 14:59:32,550 com.modest.generate.utils.FreemarkUtils - 
+java.lang.NullPointerException
+	at com.modest.generate.utils.FreemarkUtils.init(FreemarkUtils.java:30)
+	at com.modest.generate.GenerateFactory.codeGenerate(GenerateFactory.java:106)
+	at Run.main(Run.java:7)
+[ERROR] 2018-04-16 15:15:51,402 com.modest.generate.utils.ConfigFileUtils - 
+java.lang.ClassCastException: java.lang.String cannot be cast to java.util.Map
+	at com.modest.generate.utils.ConfigFileUtils.getSaveMap(ConfigFileUtils.java:28)
+	at com.modest.generate.utils.ConfigFileUtils.getConfig(ConfigFileUtils.java:57)
+	at com.modest.generate.config.ConfigFactory.init(ConfigFactory.java:13)
+	at com.modest.generate.GenerateFactory.codeGenerate(GenerateFactory.java:79)
+	at Run.main(Run.java:7)

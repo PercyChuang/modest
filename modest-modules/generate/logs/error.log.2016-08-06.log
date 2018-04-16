@@ -1,0 +1,16 @@
+[ERROR] 2016-08-06 16:18:50,660 cn.xiaoniu.generate.db.BaseDaoSupport - 
+java.sql.SQLException: No suitable driver found for jdbc.url=jdbc:mysql://192.168.2.110:3308/new_lmw?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at cn.xiaoniu.generate.db.BaseDaoSupport.getConnection(BaseDaoSupport.java:34)
+	at cn.xiaoniu.generate.db.TableParseImpl.getTable(TableParseImpl.java:28)
+	at cn.xiaoniu.generate.GenerateFactory.codeGenerate(GenerateFactory.java:107)
+	at Run.main(Run.java:8)
+[ERROR] 2016-08-06 16:18:50,663 cn.xiaoniu.generate.db.BaseDaoSupport - 
+java.sql.SQLException: No suitable driver found for jdbc.url=jdbc:mysql://192.168.2.110:3308/new_lmw?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at cn.xiaoniu.generate.db.BaseDaoSupport.getConnection(BaseDaoSupport.java:34)
+	at cn.xiaoniu.generate.db.TableParseImpl.getTable(TableParseImpl.java:32)
+	at cn.xiaoniu.generate.GenerateFactory.codeGenerate(GenerateFactory.java:107)
+	at Run.main(Run.java:8)

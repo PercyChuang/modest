@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.xn.lhlc.cfp.base.dao.ActivityProfitDao">
+<parameterMap type="cn.xn.lhlc.cfp.base.entity.ActivityProfit" id="ActivityProfitParameterMap" />	
+<!-- Result Map-->
+<resultMap  type="cn.xn.lhlc.cfp.base.entity.ActivityProfit" id="ActivityProfitResultMap">
+	<result column="f_id" property="id" jdbcType="INTEGER"/>
+	<result column="f_activity_code" property="activityCode" jdbcType="VARCHAR"/>
+	<result column="f_user_number" property="userNumber" jdbcType="VARCHAR"/>
+	<result column="f_profit_type" property="profitType" jdbcType="VARCHAR"/>
+	<result column="f_profit" property="profit" jdbcType="DOUBLE"/>
+	<result column="f_issue_time" property="issueTime" jdbcType="TIMESTAMP"/>
+	<result column="f_crt_time" property="crtTime" jdbcType="TIMESTAMP"/>
+	<result column="f_modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+	<result column="f_partner_trade_no" property="partnerTradeNo" jdbcType="VARCHAR"/>
+	<result column="f_in_record_no" property="inRecordNo" jdbcType="VARCHAR"/>
+	<result column="f_customerid" property="customerid" jdbcType="VARCHAR"/>
+	<result column="f_remark" property="remark" jdbcType="VARCHAR"/>
+</resultMap>
+  <sql id="Base_Column_List">
+    <trim suffixOverrides=",">
+	    	f_id,
+	    	f_activity_code,
+	    	f_user_number,
+	    	f_profit_type,
+	    	f_profit,
+	    	f_issue_time,
+	    	f_crt_time,
+	    	f_modify_time,
+	    	f_partner_trade_no,
+	    	f_in_record_no,
+	    	f_customerid,
+	    	f_remark,
+    </trim>
+  </sql>  
+  
+   <sql id="Base_Column_List_T">
+    <trim suffixOverrides=",">
+	    	t.f_id,
+	    	t.f_activity_code,
+	    	t.f_user_number,
+	    	t.f_profit_type,
+	    	t.f_profit,
+	    	t.f_issue_time,
+	    	t.f_crt_time,
+	    	t.f_modify_time,
+	    	t.f_partner_trade_no,
+	    	t.f_in_record_no,
+	    	t.f_customerid,
+	    	t.f_remark,
+    </trim>
+  </sql> 
+  	
+  <select id="getByPrimaryKey"  resultMap="ActivityProfitResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_activity_profit where  f_id = #{0}
+  </select>	
+
+  <delete id="deleteByPrimaryKey" >
+    delete from t_activity_profit
+	<where>
+		f_id = #{0}
+	</where>
+  </delete>
+  
+  
+  <insert id="add" parameterMap="ActivityProfitParameterMap" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO t_activity_profit
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			 	<if test=" null != id ">
+					f_id,
+				</if>
+			 	<if test=" null != activityCode and ''!= activityCode  ">
+					f_activity_code,
+				</if>
+			 	<if test=" null != userNumber and ''!= userNumber  ">
+					f_user_number,
+				</if>
+			 	<if test=" null != profitType and ''!= profitType  ">
+					f_profit_type,
+				</if>
+			 	<if test=" null != profit ">
+					f_profit,
+				</if>
+			 	<if test=" null != issueTime ">
+					f_issue_time,
+				</if>
+			 	<if test=" null != crtTime ">
+					f_crt_time,
+				</if>
+			 	<if test=" null != modifyTime ">
+					f_modify_time,
+				</if>
+			 	<if test=" null != partnerTradeNo and ''!= partnerTradeNo  ">
+					f_partner_trade_no,
+				</if>
+			 	<if test=" null != inRecordNo and ''!= inRecordNo  ">
+					f_in_record_no,
+				</if>
+			 	<if test=" null != customerid and ''!= customerid  ">
+					f_customerid,
+				</if>
+			 	<if test=" null != remark and ''!= remark  ">
+					f_remark,
+				</if>
+		</trim>
+		<trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+			 	<if test=" null != id ">
+					 	#{id},
+				</if>
+			 	<if test=" null != activityCode and ''!= activityCode  ">
+					 	#{activityCode},
+				</if>
+			 	<if test=" null != userNumber and ''!= userNumber  ">
+					 	#{userNumber},
+				</if>
+			 	<if test=" null != profitType and ''!= profitType  ">
+					 	#{profitType},
+				</if>
+			 	<if test=" null != profit ">
+					 	#{profit},
+				</if>
+			 	<if test=" null != issueTime ">
+					 	#{issueTime},
+				</if>
+			 	<if test=" null != crtTime ">
+					 	#{crtTime},
+				</if>
+			 	<if test=" null != modifyTime ">
+					 	#{modifyTime},
+				</if>
+			 	<if test=" null != partnerTradeNo and ''!= partnerTradeNo  ">
+					 	#{partnerTradeNo},
+				</if>
+			 	<if test=" null != inRecordNo and ''!= inRecordNo  ">
+					 	#{inRecordNo},
+				</if>
+			 	<if test=" null != customerid and ''!= customerid  ">
+					 	#{customerid},
+				</if>
+			 	<if test=" null != remark and ''!= remark  ">
+					 	#{remark},
+				</if>
+		</trim>
+	</insert>
+  
+  
+  <update id="update" parameterMap="ActivityProfitParameterMap">
+		UPDATE t_activity_profit
+		<set>
+			<trim suffixOverrides=",">
+					<if test=" null != activityCode and ''!= activityCode  ">
+						f_activity_code = #{activityCode},
+					</if>
+					<if test=" null != userNumber and ''!= userNumber  ">
+						f_user_number = #{userNumber},
+					</if>
+					<if test=" null != profitType and ''!= profitType  ">
+						f_profit_type = #{profitType},
+					</if>
+					<if test=" null != profit ">
+						f_profit = #{profit},
+					</if>
+					<if test=" null != issueTime ">
+						f_issue_time = #{issueTime},
+					</if>
+					<if test=" null != crtTime ">
+						f_crt_time = #{crtTime},
+					</if>
+					<if test=" null != modifyTime ">
+						f_modify_time = #{modifyTime},
+					</if>
+					<if test=" null != partnerTradeNo and ''!= partnerTradeNo  ">
+						f_partner_trade_no = #{partnerTradeNo},
+					</if>
+					<if test=" null != inRecordNo and ''!= inRecordNo  ">
+						f_in_record_no = #{inRecordNo},
+					</if>
+					<if test=" null != customerid and ''!= customerid  ">
+						f_customerid = #{customerid},
+					</if>
+					<if test=" null != remark and ''!= remark  ">
+						f_remark = #{remark},
+					</if>
+			</trim>
+		</set>
+		<where>
+			 f_id = #{id}
+		</where>
+	</update>
+  
+  
+   <update id="updateWithEmpty" parameterMap="ActivityProfitParameterMap">
+		UPDATE t_activity_profit
+		<set>
+			<trim suffixOverrides=",">
+						f_activity_code = #{activityCode},
+						f_user_number = #{userNumber},
+						f_profit_type = #{profitType},
+						f_profit = #{profit},
+						f_issue_time = #{issueTime},
+						f_crt_time = #{crtTime},
+						f_modify_time = #{modifyTime},
+						f_partner_trade_no = #{partnerTradeNo},
+						f_in_record_no = #{inRecordNo},
+						f_customerid = #{customerid},
+						f_remark = #{remark},
+			</trim>
+		</set>
+		<where>
+			 f_id = #{id}
+		</where>
+	</update>
+
+  <insert id="addBatch" parameterType="java.util.List">
+	insert into t_activity_profit 
+	<trim prefix="(" suffix=")" >
+			<include refid="Base_Column_List" />
+	</trim>
+	VALUES
+	<foreach item="item" index="index" collection="list" separator=",">
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+				#{item.id,jdbcType=INTEGER},
+				#{item.activityCode,jdbcType=VARCHAR},
+				#{item.userNumber,jdbcType=VARCHAR},
+				#{item.profitType,jdbcType=VARCHAR},
+				#{item.profit,jdbcType=DOUBLE},
+				#{item.issueTime,jdbcType=TIMESTAMP},
+				#{item.crtTime,jdbcType=TIMESTAMP},
+				#{item.modifyTime,jdbcType=TIMESTAMP},
+				#{item.partnerTradeNo,jdbcType=VARCHAR},
+				#{item.inRecordNo,jdbcType=VARCHAR},
+				#{item.customerid,jdbcType=VARCHAR},
+				#{item.remark,jdbcType=VARCHAR},
+		</trim>
+	</foreach>
+</insert>
+
+ 
+<update id="updateBatch" parameterType="java.util.List">
+      <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update t_activity_profit
+            <set>
+              	<trim suffixOverrides=",">
+					   <if test="item.activityCode!=null and ''!= item.activityCode  ">
+					        f_activity_code = #{item.activityCode,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.userNumber!=null and ''!= item.userNumber  ">
+					        f_user_number = #{item.userNumber,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.profitType!=null and ''!= item.profitType  ">
+					        f_profit_type = #{item.profitType,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.profit!=null ">
+					        f_profit = #{item.profit,jdbcType=DOUBLE},
+					   </if>
+					   <if test="item.issueTime!=null ">
+					        f_issue_time = #{item.issueTime,jdbcType=TIMESTAMP},
+					   </if>
+					   <if test="item.crtTime!=null ">
+					        f_crt_time = #{item.crtTime,jdbcType=TIMESTAMP},
+					   </if>
+					   <if test="item.modifyTime!=null ">
+					        f_modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+					   </if>
+					   <if test="item.partnerTradeNo!=null and ''!= item.partnerTradeNo  ">
+					        f_partner_trade_no = #{item.partnerTradeNo,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.inRecordNo!=null and ''!= item.inRecordNo  ">
+					        f_in_record_no = #{item.inRecordNo,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.customerid!=null and ''!= item.customerid  ">
+					        f_customerid = #{item.customerid,jdbcType=VARCHAR},
+					   </if>
+					   <if test="item.remark!=null and ''!= item.remark  ">
+					        f_remark = #{item.remark,jdbcType=VARCHAR},
+					   </if>
+			   </trim>
+            </set>
+             where f_id = #{item.id}
+     </foreach>
+</update>
+
+<update id="updateBatchWithEmpty" parameterType="java.util.List">
+      <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update t_activity_profit
+            <set>
+              	<trim suffixOverrides=",">
+					        f_activity_code = #{item.activityCode,jdbcType=VARCHAR},
+					        f_user_number = #{item.userNumber,jdbcType=VARCHAR},
+					        f_profit_type = #{item.profitType,jdbcType=VARCHAR},
+					        f_profit = #{item.profit,jdbcType=DOUBLE},
+					        f_issue_time = #{item.issueTime,jdbcType=TIMESTAMP},
+					        f_crt_time = #{item.crtTime,jdbcType=TIMESTAMP},
+					        f_modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+					        f_partner_trade_no = #{item.partnerTradeNo,jdbcType=VARCHAR},
+					        f_in_record_no = #{item.inRecordNo,jdbcType=VARCHAR},
+					        f_customerid = #{item.customerid,jdbcType=VARCHAR},
+					        f_remark = #{item.remark,jdbcType=VARCHAR},
+			   </trim>
+            </set>
+             where f_id = #{item.id}
+     </foreach>
+</update>         
+
+<delete id="deleteBatch" parameterType="Object">
+	DELETE FROM t_activity_profit
+	<where>
+		<foreach item="item" index="index" collection="array"  open="(" separator="or" close=") ">
+			  f_id  = #{item}
+		</foreach>
+	</where>
+</delete>
+    
+ <sql id="Base_Condition">
+		   <if test=" null != id ">
+				AND	T.f_id = #{id}
+		</if>
+		   <if test=" null != activityCode and ''!= activityCode  ">
+				AND	T.f_activity_code = #{activityCode}
+		</if>
+		   <if test=" null != userNumber and ''!= userNumber  ">
+				AND	T.f_user_number = #{userNumber}
+		</if>
+		   <if test=" null != profitType and ''!= profitType  ">
+				AND	T.f_profit_type = #{profitType}
+		</if>
+		   <if test=" null != profit ">
+				AND	T.f_profit = #{profit}
+		</if>
+		   <if test=" null != issueTime ">
+				AND	T.f_issue_time = #{issueTime}
+		</if>
+		   <if test=" null != crtTime ">
+				AND	T.f_crt_time = #{crtTime}
+		</if>
+		   <if test=" null != modifyTime ">
+				AND	T.f_modify_time = #{modifyTime}
+		</if>
+		   <if test=" null != partnerTradeNo and ''!= partnerTradeNo  ">
+				AND	T.f_partner_trade_no = #{partnerTradeNo}
+		</if>
+		   <if test=" null != inRecordNo and ''!= inRecordNo  ">
+				AND	T.f_in_record_no = #{inRecordNo}
+		</if>
+		   <if test=" null != customerid and ''!= customerid  ">
+				AND	T.f_customerid = #{customerid}
+		</if>
+		   <if test=" null != remark and ''!= remark  ">
+				AND	T.f_remark = #{remark}
+		</if>
+ </sql>    
+<select id="list" resultMap="ActivityProfitResultMap"  >
+		SELECT <include refid="Base_Column_List" /> FROM t_activity_profit T WHERE 1=1
+		<include refid="Base_Condition" />
+</select>
+
+<select id="query" resultMap="ActivityProfitResultMap"  >
+		SELECT <include refid="Base_Column_List" /> FROM t_activity_profit T WHERE 1=1
+		<include refid="Base_Condition" />
+</select>
+
+</mapper>

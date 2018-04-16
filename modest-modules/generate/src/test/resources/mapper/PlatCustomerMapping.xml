@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmw.p2p.freamwork.base.dao.PlatCustomerMapper">
+
+	<!-- 以下代码由工具生成，请谨慎修改 -->
+	<!-- 以下代码由工具生成，请谨慎修改 -->
+	<!-- 以下代码由工具生成，请谨慎修改 -->
+		
+	<!-- Parameter Map -->
+	<parameterMap type="com.lmw.p2p.freamwork.base.model.PlatCustomer" id="PlatCustomerParameterMap" />	
+	
+	<!-- Result Map-->
+	<resultMap  type="com.lmw.p2p.freamwork.base.model.PlatCustomer" id="PlatCustomerResultMap">
+		<result column="id" property="id" jdbcType="INTEGER"/>
+		<result column="customer_id" property="customerId" jdbcType="VARCHAR"/>
+		<result column="customer_name" property="customerName" jdbcType="VARCHAR"/>
+		<result column="customer_surname" property="customerSurname" jdbcType="VARCHAR"/>
+		<result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+		<result column="email" property="email" jdbcType="VARCHAR"/>
+		<result column="passwd" property="passwd" jdbcType="VARCHAR"/>
+		<result column="trading_passwd" property="tradingPasswd" jdbcType="VARCHAR"/>
+		<result column="gesture_passwd" property="gesturePasswd" jdbcType="VARCHAR"/>
+		<result column="reg_time" property="regTime" jdbcType="TIMESTAMP"/>
+		<result column="recommender" property="recommender" jdbcType="VARCHAR"/>
+		<result column="locking_time" property="lockingTime" jdbcType="TIMESTAMP"/>
+		<result column="scode" property="scode" jdbcType="VARCHAR"/>
+		<result column="auth_step" property="authStep" jdbcType="INTEGER"/>
+		<result column="group_id" property="groupId" jdbcType="INTEGER"/>
+		<result column="login_count" property="loginCount" jdbcType="INTEGER"/>
+		<result column="legal_type" property="legalType" jdbcType="INTEGER"/>
+		<result column="risk_type" property="riskType" jdbcType="VARCHAR"/>
+		<result column="reg_channel" property="regChannel" jdbcType="INTEGER"/>
+		<result column="origin" property="origin" jdbcType="INTEGER"/>
+		<result column="gm_id" property="gmId" jdbcType="INTEGER"/>
+		<result column="no_agree" property="noAgree" jdbcType="VARCHAR"/>
+		<result column="bank_bind_id" property="bankBindId" jdbcType="BIGINT"/>
+		<result column="user_type" property="userType" jdbcType="INTEGER"/>
+		<result column="user_type_extra" property="userTypeExtra" jdbcType="VARCHAR"/>
+		<result column="dp_user_role" property="dpUserRole" jdbcType="INTEGER"/>
+		<result column="reg_url" property="regUrl" jdbcType="VARCHAR"/>
+		<result column="cash_status" property="cashStatus" jdbcType="INTEGER"/>
+		<result column="dp_auth_list" property="dpAuthList" jdbcType="VARCHAR"/>
+		<result column="dp_auth_status" property="dpAuthStatus" jdbcType="INTEGER"/>
+		<result column="dp_auth_fail_time" property="dpAuthFailTime" jdbcType="TIMESTAMP"/>
+		<result column="dp_auth_amount" property="dpAuthAmount" jdbcType="DECIMAL"/>
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+		<result column="open_dp_status" property="openDpStatus" jdbcType="INTEGER"/>
+		<result column="open_dp_time" property="openDpTime" jdbcType="TIMESTAMP"/>
+		<result column="dp_idcard_type" property="dpIdcardType" jdbcType="INTEGER"/>
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+		<result column="enable_status" property="enableStatus" jdbcType="INTEGER"/>
+		<result column="passwd_safe_level" property="passwdSafeLevel" jdbcType="INTEGER"/>
+		<result column="app_store" property="appStore" jdbcType="VARCHAR"/>
+		<result column="audit_status" property="auditStatus" jdbcType="INTEGER"/>
+		<result column="locking_trading_time" property="lockingTradingTime" jdbcType="TIMESTAMP"/>
+		<result column="is_legacy_user" property="isLegacyUser" jdbcType="INTEGER"/>
+		<result column="user_tag" property="userTag" jdbcType="INTEGER"/>
+		<result column="thrid_user_name" property="thridUserName" jdbcType="VARCHAR"/>
+		<result column="own_type" property="ownType" jdbcType="INTEGER"/>
+		<result column="bus_type" property="busType" jdbcType="INTEGER"/>
+		<result column="fdd_customer_id" property="fddCustomerId" jdbcType="VARCHAR"/>
+		<result column="thrid_user_id" property="thridUserId" jdbcType="VARCHAR"/>
+		<result column="settlement_id" property="settlementId" jdbcType="VARCHAR"/>
+		<result column="guarantecorp_id" property="guarantecorpId" jdbcType="VARCHAR"/>
+		<result column="merchant_id" property="merchantId" jdbcType="VARCHAR"/>
+		<result column="is_continued_flag" property="isContinuedFlag" jdbcType="INTEGER"/>
+		<result column="reg_ip" property="regIp" jdbcType="VARCHAR"/>
+		<result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+		<result column="is_liquidate" property="isLiquidate" jdbcType="INTEGER"/>
+		<result column="dp_idcard_allow_repeat" property="dpIdcardAllowRepeat" jdbcType="INTEGER"/>
+		<result column="pw_update_time" property="pwUpdateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+	
+  	<sql id="Base_Column_List">
+    	<trim suffixOverrides=",">
+	    	id,
+	    	customer_id,
+	    	customer_name,
+	    	customer_surname,
+	    	mobile,
+	    	email,
+	    	passwd,
+	    	trading_passwd,
+	    	gesture_passwd,
+	    	reg_time,
+	    	recommender,
+	    	locking_time,
+	    	scode,
+	    	auth_step,
+	    	group_id,
+	    	login_count,
+	    	legal_type,
+	    	risk_type,
+	    	reg_channel,
+	    	origin,
+	    	gm_id,
+	    	no_agree,
+	    	bank_bind_id,
+	    	user_type,
+	    	user_type_extra,
+	    	dp_user_role,
+	    	reg_url,
+	    	cash_status,
+	    	dp_auth_list,
+	    	dp_auth_status,
+	    	dp_auth_fail_time,
+	    	dp_auth_amount,
+	    	create_time,
+	    	open_dp_status,
+	    	open_dp_time,
+	    	dp_idcard_type,
+	    	update_time,
+	    	enable_status,
+	    	passwd_safe_level,
+	    	app_store,
+	    	audit_status,
+	    	locking_trading_time,
+	    	is_legacy_user,
+	    	user_tag,
+	    	thrid_user_name,
+	    	own_type,
+	    	bus_type,
+	    	fdd_customer_id,
+	    	thrid_user_id,
+	    	settlement_id,
+	    	guarantecorp_id,
+	    	merchant_id,
+	    	is_continued_flag,
+	    	reg_ip,
+	    	remarks,
+	    	is_liquidate,
+	    	dp_idcard_allow_repeat,
+	    	pw_update_time,
+    	</trim>
+  	</sql>  
+  
+   	<sql id="Base_Column_List_T">
+    	<trim suffixOverrides=",">
+	    	t.id,
+	    	t.customer_id,
+	    	t.customer_name,
+	    	t.customer_surname,
+	    	t.mobile,
+	    	t.email,
+	    	t.passwd,
+	    	t.trading_passwd,
+	    	t.gesture_passwd,
+	    	t.reg_time,
+	    	t.recommender,
+	    	t.locking_time,
+	    	t.scode,
+	    	t.auth_step,
+	    	t.group_id,
+	    	t.login_count,
+	    	t.legal_type,
+	    	t.risk_type,
+	    	t.reg_channel,
+	    	t.origin,
+	    	t.gm_id,
+	    	t.no_agree,
+	    	t.bank_bind_id,
+	    	t.user_type,
+	    	t.user_type_extra,
+	    	t.dp_user_role,
+	    	t.reg_url,
+	    	t.cash_status,
+	    	t.dp_auth_list,
+	    	t.dp_auth_status,
+	    	t.dp_auth_fail_time,
+	    	t.dp_auth_amount,
+	    	t.create_time,
+	    	t.open_dp_status,
+	    	t.open_dp_time,
+	    	t.dp_idcard_type,
+	    	t.update_time,
+	    	t.enable_status,
+	    	t.passwd_safe_level,
+	    	t.app_store,
+	    	t.audit_status,
+	    	t.locking_trading_time,
+	    	t.is_legacy_user,
+	    	t.user_tag,
+	    	t.thrid_user_name,
+	    	t.own_type,
+	    	t.bus_type,
+	    	t.fdd_customer_id,
+	    	t.thrid_user_id,
+	    	t.settlement_id,
+	    	t.guarantecorp_id,
+	    	t.merchant_id,
+	    	t.is_continued_flag,
+	    	t.reg_ip,
+	    	t.remarks,
+	    	t.is_liquidate,
+	    	t.dp_idcard_allow_repeat,
+	    	t.pw_update_time,
+    	</trim>
+  	</sql> 
+  	  	
+  	<!-- 按主键获取 -->
+  	<select id="getByPrimaryKey"  resultMap="PlatCustomerResultMap">
+    	SELECT
+    	<include refid="Base_Column_List" />
+    	FROM plat_customer 
+    	WHERE id = #{0}
+  	</select>	
+
+	<!-- 按主键删除 -->
+  	<delete id="deleteByPrimaryKey" >
+    	DELETE 
+    	FROM plat_customer
+    	WHERE id = #{0}
+  	</delete>
+  
+  	<!-- 单个插入 -->
+  	<insert id="add" parameterMap="PlatCustomerParameterMap" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO plat_customer
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test=" null != id ">
+				id,
+			</if>
+			<if test=" null != customerId and ''!= customerId  ">
+				customer_id,
+			</if>
+			<if test=" null != customerName and ''!= customerName  ">
+				customer_name,
+			</if>
+			<if test=" null != customerSurname and ''!= customerSurname  ">
+				customer_surname,
+			</if>
+			<if test=" null != mobile and ''!= mobile  ">
+				mobile,
+			</if>
+			<if test=" null != email and ''!= email  ">
+				email,
+			</if>
+			<if test=" null != passwd and ''!= passwd  ">
+				passwd,
+			</if>
+			<if test=" null != tradingPasswd and ''!= tradingPasswd  ">
+				trading_passwd,
+			</if>
+			<if test=" null != gesturePasswd and ''!= gesturePasswd  ">
+				gesture_passwd,
+			</if>
+			<if test=" null != regTime ">
+				reg_time,
+			</if>
+			<if test=" null != recommender and ''!= recommender  ">
+				recommender,
+			</if>
+			<if test=" null != lockingTime ">
+				locking_time,
+			</if>
+			<if test=" null != scode and ''!= scode  ">
+				scode,
+			</if>
+			<if test=" null != authStep ">
+				auth_step,
+			</if>
+			<if test=" null != groupId ">
+				group_id,
+			</if>
+			<if test=" null != loginCount ">
+				login_count,
+			</if>
+			<if test=" null != legalType ">
+				legal_type,
+			</if>
+			<if test=" null != riskType and ''!= riskType  ">
+				risk_type,
+			</if>
+			<if test=" null != regChannel ">
+				reg_channel,
+			</if>
+			<if test=" null != origin ">
+				origin,
+			</if>
+			<if test=" null != gmId ">
+				gm_id,
+			</if>
+			<if test=" null != noAgree and ''!= noAgree  ">
+				no_agree,
+			</if>
+			<if test=" null != bankBindId ">
+				bank_bind_id,
+			</if>
+			<if test=" null != userType ">
+				user_type,
+			</if>
+			<if test=" null != userTypeExtra and ''!= userTypeExtra  ">
+				user_type_extra,
+			</if>
+			<if test=" null != dpUserRole ">
+				dp_user_role,
+			</if>
+			<if test=" null != regUrl and ''!= regUrl  ">
+				reg_url,
+			</if>
+			<if test=" null != cashStatus ">
+				cash_status,
+			</if>
+			<if test=" null != dpAuthList and ''!= dpAuthList  ">
+				dp_auth_list,
+			</if>
+			<if test=" null != dpAuthStatus ">
+				dp_auth_status,
+			</if>
+			<if test=" null != dpAuthFailTime ">
+				dp_auth_fail_time,
+			</if>
+			<if test=" null != dpAuthAmount ">
+				dp_auth_amount,
+			</if>
+			<if test=" null != createTime ">
+				create_time,
+			</if>
+			<if test=" null != openDpStatus ">
+				open_dp_status,
+			</if>
+			<if test=" null != openDpTime ">
+				open_dp_time,
+			</if>
+			<if test=" null != dpIdcardType ">
+				dp_idcard_type,
+			</if>
+			<if test=" null != updateTime ">
+				update_time,
+			</if>
+			<if test=" null != enableStatus ">
+				enable_status,
+			</if>
+			<if test=" null != passwdSafeLevel ">
+				passwd_safe_level,
+			</if>
+			<if test=" null != appStore and ''!= appStore  ">
+				app_store,
+			</if>
+			<if test=" null != auditStatus ">
+				audit_status,
+			</if>
+			<if test=" null != lockingTradingTime ">
+				locking_trading_time,
+			</if>
+			<if test=" null != isLegacyUser ">
+				is_legacy_user,
+			</if>
+			<if test=" null != userTag ">
+				user_tag,
+			</if>
+			<if test=" null != thridUserName and ''!= thridUserName  ">
+				thrid_user_name,
+			</if>
+			<if test=" null != ownType ">
+				own_type,
+			</if>
+			<if test=" null != busType ">
+				bus_type,
+			</if>
+			<if test=" null != fddCustomerId and ''!= fddCustomerId  ">
+				fdd_customer_id,
+			</if>
+			<if test=" null != thridUserId and ''!= thridUserId  ">
+				thrid_user_id,
+			</if>
+			<if test=" null != settlementId and ''!= settlementId  ">
+				settlement_id,
+			</if>
+			<if test=" null != guarantecorpId and ''!= guarantecorpId  ">
+				guarantecorp_id,
+			</if>
+			<if test=" null != merchantId and ''!= merchantId  ">
+				merchant_id,
+			</if>
+			<if test=" null != isContinuedFlag ">
+				is_continued_flag,
+			</if>
+			<if test=" null != regIp and ''!= regIp  ">
+				reg_ip,
+			</if>
+			<if test=" null != remarks and ''!= remarks  ">
+				remarks,
+			</if>
+			<if test=" null != isLiquidate ">
+				is_liquidate,
+			</if>
+			<if test=" null != dpIdcardAllowRepeat ">
+				dp_idcard_allow_repeat,
+			</if>
+			<if test=" null != pwUpdateTime ">
+				pw_update_time,
+			</if>
+		</trim>
+		
+		<trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+			<if test=" null != id ">
+				#{id},
+			</if>
+			<if test=" null != customerId and ''!= customerId  ">
+				#{customerId},
+			</if>
+			<if test=" null != customerName and ''!= customerName  ">
+				#{customerName},
+			</if>
+			<if test=" null != customerSurname and ''!= customerSurname  ">
+				#{customerSurname},
+			</if>
+			<if test=" null != mobile and ''!= mobile  ">
+				#{mobile},
+			</if>
+			<if test=" null != email and ''!= email  ">
+				#{email},
+			</if>
+			<if test=" null != passwd and ''!= passwd  ">
+				#{passwd},
+			</if>
+			<if test=" null != tradingPasswd and ''!= tradingPasswd  ">
+				#{tradingPasswd},
+			</if>
+			<if test=" null != gesturePasswd and ''!= gesturePasswd  ">
+				#{gesturePasswd},
+			</if>
+			<if test=" null != regTime ">
+				#{regTime},
+			</if>
+			<if test=" null != recommender and ''!= recommender  ">
+				#{recommender},
+			</if>
+			<if test=" null != lockingTime ">
+				#{lockingTime},
+			</if>
+			<if test=" null != scode and ''!= scode  ">
+				#{scode},
+			</if>
+			<if test=" null != authStep ">
+				#{authStep},
+			</if>
+			<if test=" null != groupId ">
+				#{groupId},
+			</if>
+			<if test=" null != loginCount ">
+				#{loginCount},
+			</if>
+			<if test=" null != legalType ">
+				#{legalType},
+			</if>
+			<if test=" null != riskType and ''!= riskType  ">
+				#{riskType},
+			</if>
+			<if test=" null != regChannel ">
+				#{regChannel},
+			</if>
+			<if test=" null != origin ">
+				#{origin},
+			</if>
+			<if test=" null != gmId ">
+				#{gmId},
+			</if>
+			<if test=" null != noAgree and ''!= noAgree  ">
+				#{noAgree},
+			</if>
+			<if test=" null != bankBindId ">
+				#{bankBindId},
+			</if>
+			<if test=" null != userType ">
+				#{userType},
+			</if>
+			<if test=" null != userTypeExtra and ''!= userTypeExtra  ">
+				#{userTypeExtra},
+			</if>
+			<if test=" null != dpUserRole ">
+				#{dpUserRole},
+			</if>
+			<if test=" null != regUrl and ''!= regUrl  ">
+				#{regUrl},
+			</if>
+			<if test=" null != cashStatus ">
+				#{cashStatus},
+			</if>
+			<if test=" null != dpAuthList and ''!= dpAuthList  ">
+				#{dpAuthList},
+			</if>
+			<if test=" null != dpAuthStatus ">
+				#{dpAuthStatus},
+			</if>
+			<if test=" null != dpAuthFailTime ">
+				#{dpAuthFailTime},
+			</if>
+			<if test=" null != dpAuthAmount ">
+				#{dpAuthAmount},
+			</if>
+			<if test=" null != createTime ">
+				#{createTime},
+			</if>
+			<if test=" null != openDpStatus ">
+				#{openDpStatus},
+			</if>
+			<if test=" null != openDpTime ">
+				#{openDpTime},
+			</if>
+			<if test=" null != dpIdcardType ">
+				#{dpIdcardType},
+			</if>
+			<if test=" null != updateTime ">
+				#{updateTime},
+			</if>
+			<if test=" null != enableStatus ">
+				#{enableStatus},
+			</if>
+			<if test=" null != passwdSafeLevel ">
+				#{passwdSafeLevel},
+			</if>
+			<if test=" null != appStore and ''!= appStore  ">
+				#{appStore},
+			</if>
+			<if test=" null != auditStatus ">
+				#{auditStatus},
+			</if>
+			<if test=" null != lockingTradingTime ">
+				#{lockingTradingTime},
+			</if>
+			<if test=" null != isLegacyUser ">
+				#{isLegacyUser},
+			</if>
+			<if test=" null != userTag ">
+				#{userTag},
+			</if>
+			<if test=" null != thridUserName and ''!= thridUserName  ">
+				#{thridUserName},
+			</if>
+			<if test=" null != ownType ">
+				#{ownType},
+			</if>
+			<if test=" null != busType ">
+				#{busType},
+			</if>
+			<if test=" null != fddCustomerId and ''!= fddCustomerId  ">
+				#{fddCustomerId},
+			</if>
+			<if test=" null != thridUserId and ''!= thridUserId  ">
+				#{thridUserId},
+			</if>
+			<if test=" null != settlementId and ''!= settlementId  ">
+				#{settlementId},
+			</if>
+			<if test=" null != guarantecorpId and ''!= guarantecorpId  ">
+				#{guarantecorpId},
+			</if>
+			<if test=" null != merchantId and ''!= merchantId  ">
+				#{merchantId},
+			</if>
+			<if test=" null != isContinuedFlag ">
+				#{isContinuedFlag},
+			</if>
+			<if test=" null != regIp and ''!= regIp  ">
+				#{regIp},
+			</if>
+			<if test=" null != remarks and ''!= remarks  ">
+				#{remarks},
+			</if>
+			<if test=" null != isLiquidate ">
+				#{isLiquidate},
+			</if>
+			<if test=" null != dpIdcardAllowRepeat ">
+				#{dpIdcardAllowRepeat},
+			</if>
+			<if test=" null != pwUpdateTime ">
+				#{pwUpdateTime},
+			</if>
+		</trim>
+	</insert>
+  
+  	<!-- 按条件更新 -->
+  	<update id="update" parameterMap="PlatCustomerParameterMap">
+		UPDATE plat_customer
+		<set>
+			<trim suffixOverrides=",">
+				<if test=" null != customerId and ''!= customerId  ">
+					customer_id = #{customerId},
+				</if>
+				<if test=" null != customerName and ''!= customerName  ">
+					customer_name = #{customerName},
+				</if>
+				<if test=" null != customerSurname and ''!= customerSurname  ">
+					customer_surname = #{customerSurname},
+				</if>
+				<if test=" null != mobile and ''!= mobile  ">
+					mobile = #{mobile},
+				</if>
+				<if test=" null != email and ''!= email  ">
+					email = #{email},
+				</if>
+				<if test=" null != passwd and ''!= passwd  ">
+					passwd = #{passwd},
+				</if>
+				<if test=" null != tradingPasswd and ''!= tradingPasswd  ">
+					trading_passwd = #{tradingPasswd},
+				</if>
+				<if test=" null != gesturePasswd and ''!= gesturePasswd  ">
+					gesture_passwd = #{gesturePasswd},
+				</if>
+				<if test=" null != regTime ">
+					reg_time = #{regTime},
+				</if>
+				<if test=" null != recommender and ''!= recommender  ">
+					recommender = #{recommender},
+				</if>
+				<if test=" null != lockingTime ">
+					locking_time = #{lockingTime},
+				</if>
+				<if test=" null != scode and ''!= scode  ">
+					scode = #{scode},
+				</if>
+				<if test=" null != authStep ">
+					auth_step = #{authStep},
+				</if>
+				<if test=" null != groupId ">
+					group_id = #{groupId},
+				</if>
+				<if test=" null != loginCount ">
+					login_count = #{loginCount},
+				</if>
+				<if test=" null != legalType ">
+					legal_type = #{legalType},
+				</if>
+				<if test=" null != riskType and ''!= riskType  ">
+					risk_type = #{riskType},
+				</if>
+				<if test=" null != regChannel ">
+					reg_channel = #{regChannel},
+				</if>
+				<if test=" null != origin ">
+					origin = #{origin},
+				</if>
+				<if test=" null != gmId ">
+					gm_id = #{gmId},
+				</if>
+				<if test=" null != noAgree and ''!= noAgree  ">
+					no_agree = #{noAgree},
+				</if>
+				<if test=" null != bankBindId ">
+					bank_bind_id = #{bankBindId},
+				</if>
+				<if test=" null != userType ">
+					user_type = #{userType},
+				</if>
+				<if test=" null != userTypeExtra and ''!= userTypeExtra  ">
+					user_type_extra = #{userTypeExtra},
+				</if>
+				<if test=" null != dpUserRole ">
+					dp_user_role = #{dpUserRole},
+				</if>
+				<if test=" null != regUrl and ''!= regUrl  ">
+					reg_url = #{regUrl},
+				</if>
+				<if test=" null != cashStatus ">
+					cash_status = #{cashStatus},
+				</if>
+				<if test=" null != dpAuthList and ''!= dpAuthList  ">
+					dp_auth_list = #{dpAuthList},
+				</if>
+				<if test=" null != dpAuthStatus ">
+					dp_auth_status = #{dpAuthStatus},
+				</if>
+				<if test=" null != dpAuthFailTime ">
+					dp_auth_fail_time = #{dpAuthFailTime},
+				</if>
+				<if test=" null != dpAuthAmount ">
+					dp_auth_amount = #{dpAuthAmount},
+				</if>
+				<if test=" null != createTime ">
+					create_time = #{createTime},
+				</if>
+				<if test=" null != openDpStatus ">
+					open_dp_status = #{openDpStatus},
+				</if>
+				<if test=" null != openDpTime ">
+					open_dp_time = #{openDpTime},
+				</if>
+				<if test=" null != dpIdcardType ">
+					dp_idcard_type = #{dpIdcardType},
+				</if>
+				<if test=" null != updateTime ">
+					update_time = #{updateTime},
+				</if>
+				<if test=" null != enableStatus ">
+					enable_status = #{enableStatus},
+				</if>
+				<if test=" null != passwdSafeLevel ">
+					passwd_safe_level = #{passwdSafeLevel},
+				</if>
+				<if test=" null != appStore and ''!= appStore  ">
+					app_store = #{appStore},
+				</if>
+				<if test=" null != auditStatus ">
+					audit_status = #{auditStatus},
+				</if>
+				<if test=" null != lockingTradingTime ">
+					locking_trading_time = #{lockingTradingTime},
+				</if>
+				<if test=" null != isLegacyUser ">
+					is_legacy_user = #{isLegacyUser},
+				</if>
+				<if test=" null != userTag ">
+					user_tag = #{userTag},
+				</if>
+				<if test=" null != thridUserName and ''!= thridUserName  ">
+					thrid_user_name = #{thridUserName},
+				</if>
+				<if test=" null != ownType ">
+					own_type = #{ownType},
+				</if>
+				<if test=" null != busType ">
+					bus_type = #{busType},
+				</if>
+				<if test=" null != fddCustomerId and ''!= fddCustomerId  ">
+					fdd_customer_id = #{fddCustomerId},
+				</if>
+				<if test=" null != thridUserId and ''!= thridUserId  ">
+					thrid_user_id = #{thridUserId},
+				</if>
+				<if test=" null != settlementId and ''!= settlementId  ">
+					settlement_id = #{settlementId},
+				</if>
+				<if test=" null != guarantecorpId and ''!= guarantecorpId  ">
+					guarantecorp_id = #{guarantecorpId},
+				</if>
+				<if test=" null != merchantId and ''!= merchantId  ">
+					merchant_id = #{merchantId},
+				</if>
+				<if test=" null != isContinuedFlag ">
+					is_continued_flag = #{isContinuedFlag},
+				</if>
+				<if test=" null != regIp and ''!= regIp  ">
+					reg_ip = #{regIp},
+				</if>
+				<if test=" null != remarks and ''!= remarks  ">
+					remarks = #{remarks},
+				</if>
+				<if test=" null != isLiquidate ">
+					is_liquidate = #{isLiquidate},
+				</if>
+				<if test=" null != dpIdcardAllowRepeat ">
+					dp_idcard_allow_repeat = #{dpIdcardAllowRepeat},
+				</if>
+				<if test=" null != pwUpdateTime ">
+					pw_update_time = #{pwUpdateTime},
+				</if>
+			</trim>
+		</set>
+		<where>
+			 id = #{id}
+		</where>
+	</update>
+  
+  	<!-- 按条件更新 -->
+   	<update id="updateWithEmpty" parameterMap="PlatCustomerParameterMap">
+		UPDATE plat_customer
+		<set>
+			<trim suffixOverrides=",">
+				customer_id = #{customerId},
+				customer_name = #{customerName},
+				customer_surname = #{customerSurname},
+				mobile = #{mobile},
+				email = #{email},
+				passwd = #{passwd},
+				trading_passwd = #{tradingPasswd},
+				gesture_passwd = #{gesturePasswd},
+				reg_time = #{regTime},
+				recommender = #{recommender},
+				locking_time = #{lockingTime},
+				scode = #{scode},
+				auth_step = #{authStep},
+				group_id = #{groupId},
+				login_count = #{loginCount},
+				legal_type = #{legalType},
+				risk_type = #{riskType},
+				reg_channel = #{regChannel},
+				origin = #{origin},
+				gm_id = #{gmId},
+				no_agree = #{noAgree},
+				bank_bind_id = #{bankBindId},
+				user_type = #{userType},
+				user_type_extra = #{userTypeExtra},
+				dp_user_role = #{dpUserRole},
+				reg_url = #{regUrl},
+				cash_status = #{cashStatus},
+				dp_auth_list = #{dpAuthList},
+				dp_auth_status = #{dpAuthStatus},
+				dp_auth_fail_time = #{dpAuthFailTime},
+				dp_auth_amount = #{dpAuthAmount},
+				create_time = #{createTime},
+				open_dp_status = #{openDpStatus},
+				open_dp_time = #{openDpTime},
+				dp_idcard_type = #{dpIdcardType},
+				update_time = #{updateTime},
+				enable_status = #{enableStatus},
+				passwd_safe_level = #{passwdSafeLevel},
+				app_store = #{appStore},
+				audit_status = #{auditStatus},
+				locking_trading_time = #{lockingTradingTime},
+				is_legacy_user = #{isLegacyUser},
+				user_tag = #{userTag},
+				thrid_user_name = #{thridUserName},
+				own_type = #{ownType},
+				bus_type = #{busType},
+				fdd_customer_id = #{fddCustomerId},
+				thrid_user_id = #{thridUserId},
+				settlement_id = #{settlementId},
+				guarantecorp_id = #{guarantecorpId},
+				merchant_id = #{merchantId},
+				is_continued_flag = #{isContinuedFlag},
+				reg_ip = #{regIp},
+				remarks = #{remarks},
+				is_liquidate = #{isLiquidate},
+				dp_idcard_allow_repeat = #{dpIdcardAllowRepeat},
+				pw_update_time = #{pwUpdateTime},
+			</trim>
+		</set>
+		<where>
+			 id = #{id}
+		</where>
+	</update>
+
+	<!-- 批量删除 -->
+  	<insert id="addBatch" parameterType="java.util.List">
+		INSERT INTO plat_customer 
+		<trim prefix="(" suffix=")" >
+			<include refid="Base_Column_List" />
+		</trim>
+		VALUES
+		<foreach item="item" index="index" collection="list" separator=",">
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				#{item.id,jdbcType=INTEGER},
+				#{item.customerId,jdbcType=VARCHAR},
+				#{item.customerName,jdbcType=VARCHAR},
+				#{item.customerSurname,jdbcType=VARCHAR},
+				#{item.mobile,jdbcType=VARCHAR},
+				#{item.email,jdbcType=VARCHAR},
+				#{item.passwd,jdbcType=VARCHAR},
+				#{item.tradingPasswd,jdbcType=VARCHAR},
+				#{item.gesturePasswd,jdbcType=VARCHAR},
+				#{item.regTime,jdbcType=TIMESTAMP},
+				#{item.recommender,jdbcType=VARCHAR},
+				#{item.lockingTime,jdbcType=TIMESTAMP},
+				#{item.scode,jdbcType=VARCHAR},
+				#{item.authStep,jdbcType=INTEGER},
+				#{item.groupId,jdbcType=INTEGER},
+				#{item.loginCount,jdbcType=INTEGER},
+				#{item.legalType,jdbcType=INTEGER},
+				#{item.riskType,jdbcType=VARCHAR},
+				#{item.regChannel,jdbcType=INTEGER},
+				#{item.origin,jdbcType=INTEGER},
+				#{item.gmId,jdbcType=INTEGER},
+				#{item.noAgree,jdbcType=VARCHAR},
+				#{item.bankBindId,jdbcType=BIGINT},
+				#{item.userType,jdbcType=INTEGER},
+				#{item.userTypeExtra,jdbcType=VARCHAR},
+				#{item.dpUserRole,jdbcType=INTEGER},
+				#{item.regUrl,jdbcType=VARCHAR},
+				#{item.cashStatus,jdbcType=INTEGER},
+				#{item.dpAuthList,jdbcType=VARCHAR},
+				#{item.dpAuthStatus,jdbcType=INTEGER},
+				#{item.dpAuthFailTime,jdbcType=TIMESTAMP},
+				#{item.dpAuthAmount,jdbcType=DECIMAL},
+				#{item.createTime,jdbcType=TIMESTAMP},
+				#{item.openDpStatus,jdbcType=INTEGER},
+				#{item.openDpTime,jdbcType=TIMESTAMP},
+				#{item.dpIdcardType,jdbcType=INTEGER},
+				#{item.updateTime,jdbcType=TIMESTAMP},
+				#{item.enableStatus,jdbcType=INTEGER},
+				#{item.passwdSafeLevel,jdbcType=INTEGER},
+				#{item.appStore,jdbcType=VARCHAR},
+				#{item.auditStatus,jdbcType=INTEGER},
+				#{item.lockingTradingTime,jdbcType=TIMESTAMP},
+				#{item.isLegacyUser,jdbcType=INTEGER},
+				#{item.userTag,jdbcType=INTEGER},
+				#{item.thridUserName,jdbcType=VARCHAR},
+				#{item.ownType,jdbcType=INTEGER},
+				#{item.busType,jdbcType=INTEGER},
+				#{item.fddCustomerId,jdbcType=VARCHAR},
+				#{item.thridUserId,jdbcType=VARCHAR},
+				#{item.settlementId,jdbcType=VARCHAR},
+				#{item.guarantecorpId,jdbcType=VARCHAR},
+				#{item.merchantId,jdbcType=VARCHAR},
+				#{item.isContinuedFlag,jdbcType=INTEGER},
+				#{item.regIp,jdbcType=VARCHAR},
+				#{item.remarks,jdbcType=VARCHAR},
+				#{item.isLiquidate,jdbcType=INTEGER},
+				#{item.dpIdcardAllowRepeat,jdbcType=INTEGER},
+				#{item.pwUpdateTime,jdbcType=TIMESTAMP},
+			</trim>
+		</foreach>
+	</insert>
+ 
+ 	<!-- 批量更新 -->
+	<update id="updateBatch" parameterType="java.util.List">
+    	<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+        UPDATE plat_customer
+        <set>
+        	<trim suffixOverrides=",">
+			<if test="item.customerId!=null and ''!= item.customerId  ">
+				customer_id = #{item.customerId,jdbcType=VARCHAR},
+			</if>
+			<if test="item.customerName!=null and ''!= item.customerName  ">
+				customer_name = #{item.customerName,jdbcType=VARCHAR},
+			</if>
+			<if test="item.customerSurname!=null and ''!= item.customerSurname  ">
+				customer_surname = #{item.customerSurname,jdbcType=VARCHAR},
+			</if>
+			<if test="item.mobile!=null and ''!= item.mobile  ">
+				mobile = #{item.mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="item.email!=null and ''!= item.email  ">
+				email = #{item.email,jdbcType=VARCHAR},
+			</if>
+			<if test="item.passwd!=null and ''!= item.passwd  ">
+				passwd = #{item.passwd,jdbcType=VARCHAR},
+			</if>
+			<if test="item.tradingPasswd!=null and ''!= item.tradingPasswd  ">
+				trading_passwd = #{item.tradingPasswd,jdbcType=VARCHAR},
+			</if>
+			<if test="item.gesturePasswd!=null and ''!= item.gesturePasswd  ">
+				gesture_passwd = #{item.gesturePasswd,jdbcType=VARCHAR},
+			</if>
+			<if test="item.regTime!=null ">
+				reg_time = #{item.regTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="item.recommender!=null and ''!= item.recommender  ">
+				recommender = #{item.recommender,jdbcType=VARCHAR},
+			</if>
+			<if test="item.lockingTime!=null ">
+				locking_time = #{item.lockingTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="item.scode!=null and ''!= item.scode  ">
+				scode = #{item.scode,jdbcType=VARCHAR},
+			</if>
+			<if test="item.authStep!=null ">
+				auth_step = #{item.authStep,jdbcType=INTEGER},
+			</if>
+			<if test="item.groupId!=null ">
+				group_id = #{item.groupId,jdbcType=INTEGER},
+			</if>
+			<if test="item.loginCount!=null ">
+				login_count = #{item.loginCount,jdbcType=INTEGER},
+			</if>
+			<if test="item.legalType!=null ">
+				legal_type = #{item.legalType,jdbcType=INTEGER},
+			</if>
+			<if test="item.riskType!=null and ''!= item.riskType  ">
+				risk_type = #{item.riskType,jdbcType=VARCHAR},
+			</if>
+			<if test="item.regChannel!=null ">
+				reg_channel = #{item.regChannel,jdbcType=INTEGER},
+			</if>
+			<if test="item.origin!=null ">
+				origin = #{item.origin,jdbcType=INTEGER},
+			</if>
+			<if test="item.gmId!=null ">
+				gm_id = #{item.gmId,jdbcType=INTEGER},
+			</if>
+			<if test="item.noAgree!=null and ''!= item.noAgree  ">
+				no_agree = #{item.noAgree,jdbcType=VARCHAR},
+			</if>
+			<if test="item.bankBindId!=null ">
+				bank_bind_id = #{item.bankBindId,jdbcType=BIGINT},
+			</if>
+			<if test="item.userType!=null ">
+				user_type = #{item.userType,jdbcType=INTEGER},
+			</if>
+			<if test="item.userTypeExtra!=null and ''!= item.userTypeExtra  ">
+				user_type_extra = #{item.userTypeExtra,jdbcType=VARCHAR},
+			</if>
+			<if test="item.dpUserRole!=null ">
+				dp_user_role = #{item.dpUserRole,jdbcType=INTEGER},
+			</if>
+			<if test="item.regUrl!=null and ''!= item.regUrl  ">
+				reg_url = #{item.regUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="item.cashStatus!=null ">
+				cash_status = #{item.cashStatus,jdbcType=INTEGER},
+			</if>
+			<if test="item.dpAuthList!=null and ''!= item.dpAuthList  ">
+				dp_auth_list = #{item.dpAuthList,jdbcType=VARCHAR},
+			</if>
+			<if test="item.dpAuthStatus!=null ">
+				dp_auth_status = #{item.dpAuthStatus,jdbcType=INTEGER},
+			</if>
+			<if test="item.dpAuthFailTime!=null ">
+				dp_auth_fail_time = #{item.dpAuthFailTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="item.dpAuthAmount!=null ">
+				dp_auth_amount = #{item.dpAuthAmount,jdbcType=DECIMAL},
+			</if>
+			<if test="item.createTime!=null ">
+				create_time = #{item.createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="item.openDpStatus!=null ">
+				open_dp_status = #{item.openDpStatus,jdbcType=INTEGER},
+			</if>
+			<if test="item.openDpTime!=null ">
+				open_dp_time = #{item.openDpTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="item.dpIdcardType!=null ">
+				dp_idcard_type = #{item.dpIdcardType,jdbcType=INTEGER},
+			</if>
+			<if test="item.updateTime!=null ">
+				update_time = #{item.updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="item.enableStatus!=null ">
+				enable_status = #{item.enableStatus,jdbcType=INTEGER},
+			</if>
+			<if test="item.passwdSafeLevel!=null ">
+				passwd_safe_level = #{item.passwdSafeLevel,jdbcType=INTEGER},
+			</if>
+			<if test="item.appStore!=null and ''!= item.appStore  ">
+				app_store = #{item.appStore,jdbcType=VARCHAR},
+			</if>
+			<if test="item.auditStatus!=null ">
+				audit_status = #{item.auditStatus,jdbcType=INTEGER},
+			</if>
+			<if test="item.lockingTradingTime!=null ">
+				locking_trading_time = #{item.lockingTradingTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="item.isLegacyUser!=null ">
+				is_legacy_user = #{item.isLegacyUser,jdbcType=INTEGER},
+			</if>
+			<if test="item.userTag!=null ">
+				user_tag = #{item.userTag,jdbcType=INTEGER},
+			</if>
+			<if test="item.thridUserName!=null and ''!= item.thridUserName  ">
+				thrid_user_name = #{item.thridUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="item.ownType!=null ">
+				own_type = #{item.ownType,jdbcType=INTEGER},
+			</if>
+			<if test="item.busType!=null ">
+				bus_type = #{item.busType,jdbcType=INTEGER},
+			</if>
+			<if test="item.fddCustomerId!=null and ''!= item.fddCustomerId  ">
+				fdd_customer_id = #{item.fddCustomerId,jdbcType=VARCHAR},
+			</if>
+			<if test="item.thridUserId!=null and ''!= item.thridUserId  ">
+				thrid_user_id = #{item.thridUserId,jdbcType=VARCHAR},
+			</if>
+			<if test="item.settlementId!=null and ''!= item.settlementId  ">
+				settlement_id = #{item.settlementId,jdbcType=VARCHAR},
+			</if>
+			<if test="item.guarantecorpId!=null and ''!= item.guarantecorpId  ">
+				guarantecorp_id = #{item.guarantecorpId,jdbcType=VARCHAR},
+			</if>
+			<if test="item.merchantId!=null and ''!= item.merchantId  ">
+				merchant_id = #{item.merchantId,jdbcType=VARCHAR},
+			</if>
+			<if test="item.isContinuedFlag!=null ">
+				is_continued_flag = #{item.isContinuedFlag,jdbcType=INTEGER},
+			</if>
+			<if test="item.regIp!=null and ''!= item.regIp  ">
+				reg_ip = #{item.regIp,jdbcType=VARCHAR},
+			</if>
+			<if test="item.remarks!=null and ''!= item.remarks  ">
+				remarks = #{item.remarks,jdbcType=VARCHAR},
+			</if>
+			<if test="item.isLiquidate!=null ">
+				is_liquidate = #{item.isLiquidate,jdbcType=INTEGER},
+			</if>
+			<if test="item.dpIdcardAllowRepeat!=null ">
+				dp_idcard_allow_repeat = #{item.dpIdcardAllowRepeat,jdbcType=INTEGER},
+			</if>
+			<if test="item.pwUpdateTime!=null ">
+				pw_update_time = #{item.pwUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+			</trim>
+        </set>
+        WHERE id = #{item.id}
+     	</foreach>
+	</update>
+
+	<!-- 批量更新 -->
+	<update id="updateBatchWithEmpty" parameterType="java.util.List">
+    	<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+        UPDATE plat_customer
+        <set>
+        	<trim suffixOverrides=",">
+				customer_id = #{item.customerId,jdbcType=VARCHAR},
+				customer_name = #{item.customerName,jdbcType=VARCHAR},
+				customer_surname = #{item.customerSurname,jdbcType=VARCHAR},
+				mobile = #{item.mobile,jdbcType=VARCHAR},
+				email = #{item.email,jdbcType=VARCHAR},
+				passwd = #{item.passwd,jdbcType=VARCHAR},
+				trading_passwd = #{item.tradingPasswd,jdbcType=VARCHAR},
+				gesture_passwd = #{item.gesturePasswd,jdbcType=VARCHAR},
+				reg_time = #{item.regTime,jdbcType=TIMESTAMP},
+				recommender = #{item.recommender,jdbcType=VARCHAR},
+				locking_time = #{item.lockingTime,jdbcType=TIMESTAMP},
+				scode = #{item.scode,jdbcType=VARCHAR},
+				auth_step = #{item.authStep,jdbcType=INTEGER},
+				group_id = #{item.groupId,jdbcType=INTEGER},
+				login_count = #{item.loginCount,jdbcType=INTEGER},
+				legal_type = #{item.legalType,jdbcType=INTEGER},
+				risk_type = #{item.riskType,jdbcType=VARCHAR},
+				reg_channel = #{item.regChannel,jdbcType=INTEGER},
+				origin = #{item.origin,jdbcType=INTEGER},
+				gm_id = #{item.gmId,jdbcType=INTEGER},
+				no_agree = #{item.noAgree,jdbcType=VARCHAR},
+				bank_bind_id = #{item.bankBindId,jdbcType=BIGINT},
+				user_type = #{item.userType,jdbcType=INTEGER},
+				user_type_extra = #{item.userTypeExtra,jdbcType=VARCHAR},
+				dp_user_role = #{item.dpUserRole,jdbcType=INTEGER},
+				reg_url = #{item.regUrl,jdbcType=VARCHAR},
+				cash_status = #{item.cashStatus,jdbcType=INTEGER},
+				dp_auth_list = #{item.dpAuthList,jdbcType=VARCHAR},
+				dp_auth_status = #{item.dpAuthStatus,jdbcType=INTEGER},
+				dp_auth_fail_time = #{item.dpAuthFailTime,jdbcType=TIMESTAMP},
+				dp_auth_amount = #{item.dpAuthAmount,jdbcType=DECIMAL},
+				create_time = #{item.createTime,jdbcType=TIMESTAMP},
+				open_dp_status = #{item.openDpStatus,jdbcType=INTEGER},
+				open_dp_time = #{item.openDpTime,jdbcType=TIMESTAMP},
+				dp_idcard_type = #{item.dpIdcardType,jdbcType=INTEGER},
+				update_time = #{item.updateTime,jdbcType=TIMESTAMP},
+				enable_status = #{item.enableStatus,jdbcType=INTEGER},
+				passwd_safe_level = #{item.passwdSafeLevel,jdbcType=INTEGER},
+				app_store = #{item.appStore,jdbcType=VARCHAR},
+				audit_status = #{item.auditStatus,jdbcType=INTEGER},
+				locking_trading_time = #{item.lockingTradingTime,jdbcType=TIMESTAMP},
+				is_legacy_user = #{item.isLegacyUser,jdbcType=INTEGER},
+				user_tag = #{item.userTag,jdbcType=INTEGER},
+				thrid_user_name = #{item.thridUserName,jdbcType=VARCHAR},
+				own_type = #{item.ownType,jdbcType=INTEGER},
+				bus_type = #{item.busType,jdbcType=INTEGER},
+				fdd_customer_id = #{item.fddCustomerId,jdbcType=VARCHAR},
+				thrid_user_id = #{item.thridUserId,jdbcType=VARCHAR},
+				settlement_id = #{item.settlementId,jdbcType=VARCHAR},
+				guarantecorp_id = #{item.guarantecorpId,jdbcType=VARCHAR},
+				merchant_id = #{item.merchantId,jdbcType=VARCHAR},
+				is_continued_flag = #{item.isContinuedFlag,jdbcType=INTEGER},
+				reg_ip = #{item.regIp,jdbcType=VARCHAR},
+				remarks = #{item.remarks,jdbcType=VARCHAR},
+				is_liquidate = #{item.isLiquidate,jdbcType=INTEGER},
+				dp_idcard_allow_repeat = #{item.dpIdcardAllowRepeat,jdbcType=INTEGER},
+				pw_update_time = #{item.pwUpdateTime,jdbcType=TIMESTAMP},
+			</trim>
+        </set>
+        WHERE id = #{item.id}
+     	</foreach>
+	</update>         
+	
+	<!-- 批量删除 -->
+	<delete id="deleteBatch" parameterType="Object">
+		DELETE FROM plat_customer
+		<where>
+			<foreach item="item" index="index" collection="array"  open="(" separator="or" close=") ">
+			 	 id  = #{item}
+			</foreach>
+		</where>
+	</delete>
+
+ 	<sql id="Base_Condition">
+		<if test=" null != id ">
+			AND	T.id = #{id}
+		</if>
+		<if test=" null != customerId and ''!= customerId  ">
+			AND	T.customer_id = #{customerId}
+		</if>
+		<if test=" null != customerName and ''!= customerName  ">
+			AND	T.customer_name = #{customerName}
+		</if>
+		<if test=" null != customerSurname and ''!= customerSurname  ">
+			AND	T.customer_surname = #{customerSurname}
+		</if>
+		<if test=" null != mobile and ''!= mobile  ">
+			AND	T.mobile = #{mobile}
+		</if>
+		<if test=" null != email and ''!= email  ">
+			AND	T.email = #{email}
+		</if>
+		<if test=" null != passwd and ''!= passwd  ">
+			AND	T.passwd = #{passwd}
+		</if>
+		<if test=" null != tradingPasswd and ''!= tradingPasswd  ">
+			AND	T.trading_passwd = #{tradingPasswd}
+		</if>
+		<if test=" null != gesturePasswd and ''!= gesturePasswd  ">
+			AND	T.gesture_passwd = #{gesturePasswd}
+		</if>
+		<if test=" null != regTime ">
+			AND	T.reg_time = #{regTime}
+		</if>
+		<if test=" null != recommender and ''!= recommender  ">
+			AND	T.recommender = #{recommender}
+		</if>
+		<if test=" null != lockingTime ">
+			AND	T.locking_time = #{lockingTime}
+		</if>
+		<if test=" null != scode and ''!= scode  ">
+			AND	T.scode = #{scode}
+		</if>
+		<if test=" null != authStep ">
+			AND	T.auth_step = #{authStep}
+		</if>
+		<if test=" null != groupId ">
+			AND	T.group_id = #{groupId}
+		</if>
+		<if test=" null != loginCount ">
+			AND	T.login_count = #{loginCount}
+		</if>
+		<if test=" null != legalType ">
+			AND	T.legal_type = #{legalType}
+		</if>
+		<if test=" null != riskType and ''!= riskType  ">
+			AND	T.risk_type = #{riskType}
+		</if>
+		<if test=" null != regChannel ">
+			AND	T.reg_channel = #{regChannel}
+		</if>
+		<if test=" null != origin ">
+			AND	T.origin = #{origin}
+		</if>
+		<if test=" null != gmId ">
+			AND	T.gm_id = #{gmId}
+		</if>
+		<if test=" null != noAgree and ''!= noAgree  ">
+			AND	T.no_agree = #{noAgree}
+		</if>
+		<if test=" null != bankBindId ">
+			AND	T.bank_bind_id = #{bankBindId}
+		</if>
+		<if test=" null != userType ">
+			AND	T.user_type = #{userType}
+		</if>
+		<if test=" null != userTypeExtra and ''!= userTypeExtra  ">
+			AND	T.user_type_extra = #{userTypeExtra}
+		</if>
+		<if test=" null != dpUserRole ">
+			AND	T.dp_user_role = #{dpUserRole}
+		</if>
+		<if test=" null != regUrl and ''!= regUrl  ">
+			AND	T.reg_url = #{regUrl}
+		</if>
+		<if test=" null != cashStatus ">
+			AND	T.cash_status = #{cashStatus}
+		</if>
+		<if test=" null != dpAuthList and ''!= dpAuthList  ">
+			AND	T.dp_auth_list = #{dpAuthList}
+		</if>
+		<if test=" null != dpAuthStatus ">
+			AND	T.dp_auth_status = #{dpAuthStatus}
+		</if>
+		<if test=" null != dpAuthFailTime ">
+			AND	T.dp_auth_fail_time = #{dpAuthFailTime}
+		</if>
+		<if test=" null != dpAuthAmount ">
+			AND	T.dp_auth_amount = #{dpAuthAmount}
+		</if>
+		<if test=" null != createTime ">
+			AND	T.create_time = #{createTime}
+		</if>
+		<if test=" null != openDpStatus ">
+			AND	T.open_dp_status = #{openDpStatus}
+		</if>
+		<if test=" null != openDpTime ">
+			AND	T.open_dp_time = #{openDpTime}
+		</if>
+		<if test=" null != dpIdcardType ">
+			AND	T.dp_idcard_type = #{dpIdcardType}
+		</if>
+		<if test=" null != updateTime ">
+			AND	T.update_time = #{updateTime}
+		</if>
+		<if test=" null != enableStatus ">
+			AND	T.enable_status = #{enableStatus}
+		</if>
+		<if test=" null != passwdSafeLevel ">
+			AND	T.passwd_safe_level = #{passwdSafeLevel}
+		</if>
+		<if test=" null != appStore and ''!= appStore  ">
+			AND	T.app_store = #{appStore}
+		</if>
+		<if test=" null != auditStatus ">
+			AND	T.audit_status = #{auditStatus}
+		</if>
+		<if test=" null != lockingTradingTime ">
+			AND	T.locking_trading_time = #{lockingTradingTime}
+		</if>
+		<if test=" null != isLegacyUser ">
+			AND	T.is_legacy_user = #{isLegacyUser}
+		</if>
+		<if test=" null != userTag ">
+			AND	T.user_tag = #{userTag}
+		</if>
+		<if test=" null != thridUserName and ''!= thridUserName  ">
+			AND	T.thrid_user_name = #{thridUserName}
+		</if>
+		<if test=" null != ownType ">
+			AND	T.own_type = #{ownType}
+		</if>
+		<if test=" null != busType ">
+			AND	T.bus_type = #{busType}
+		</if>
+		<if test=" null != fddCustomerId and ''!= fddCustomerId  ">
+			AND	T.fdd_customer_id = #{fddCustomerId}
+		</if>
+		<if test=" null != thridUserId and ''!= thridUserId  ">
+			AND	T.thrid_user_id = #{thridUserId}
+		</if>
+		<if test=" null != settlementId and ''!= settlementId  ">
+			AND	T.settlement_id = #{settlementId}
+		</if>
+		<if test=" null != guarantecorpId and ''!= guarantecorpId  ">
+			AND	T.guarantecorp_id = #{guarantecorpId}
+		</if>
+		<if test=" null != merchantId and ''!= merchantId  ">
+			AND	T.merchant_id = #{merchantId}
+		</if>
+		<if test=" null != isContinuedFlag ">
+			AND	T.is_continued_flag = #{isContinuedFlag}
+		</if>
+		<if test=" null != regIp and ''!= regIp  ">
+			AND	T.reg_ip = #{regIp}
+		</if>
+		<if test=" null != remarks and ''!= remarks  ">
+			AND	T.remarks = #{remarks}
+		</if>
+		<if test=" null != isLiquidate ">
+			AND	T.is_liquidate = #{isLiquidate}
+		</if>
+		<if test=" null != dpIdcardAllowRepeat ">
+			AND	T.dp_idcard_allow_repeat = #{dpIdcardAllowRepeat}
+		</if>
+		<if test=" null != pwUpdateTime ">
+			AND	T.pw_update_time = #{pwUpdateTime}
+		</if>
+ 	</sql>
+       
+	<select id="list" resultMap="PlatCustomerResultMap"  >
+		SELECT <include refid="Base_Column_List" /> FROM plat_customer T WHERE 1=1
+		<include refid="Base_Condition" />
+	</select>
+
+	<select id="query" resultMap="PlatCustomerResultMap"  >
+		SELECT <include refid="Base_Column_List" /> FROM plat_customer T WHERE 1=1
+		<include refid="Base_Condition" />
+	</select>
+
+	<!-- 以上代码由工具生成，请谨慎修改 -->
+	<!-- 以上代码由工具生成，请谨慎修改 -->
+	<!-- 以上代码由工具生成，请谨慎修改 -->	
+	
+	<!-- 以下代码由工程师自行添加 -->
+	<!-- 以下代码由工程师自行添加 -->
+	<!-- 以下代码由工程师自行添加 -->
+</mapper>

@@ -1,0 +1,8 @@
+package cn.lmw.generate.model;
+
+
+public class SqlResultSet extends Table{
+
+
+	
+}
