@@ -5,24 +5,22 @@
 MODEST是将JAVA项目常用技术进行模块化，规范化，统一约束，组件独立维护的一个大整合。<br>
 通过它你可快速构建JAVA WEB、微服务或JAVA普通项目；众多技术代码以组件或工具类形式写好，配置即用。<br>
 
-## 快速开始 没有放到maven库，请下源码。
-
 ### 1.在pom.xml中引入
  ```
   <parent>
       <groupId>com.modest</groupId>
       <artifactId>modest-parent</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.1</version>
   </parent>
   <dependency>
       <groupId>com.modest</groupId>
       <artifactId>modest-starter</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.1</version>
   </dependency>
    ```
  ### 2.在你的spring配置文件中加入
  ```
- <import resource="classpath:modest.xml" />
+ <import resource="classpath*:modest.xml" />
  <bean class="com.modest.core.config.ScannerConfigurer">
 		<property name="basePackages">
 			<array>
